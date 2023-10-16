@@ -1,10 +1,14 @@
 body{
     background: linear-gradient(to top, #000, #333);
+  
 }
 
 .sidebar{
     
     background-color: black;
+}
+.btn-group{
+    background-color: #000;
 }
 .album-row{
     background: linear-gradient(to top, #000, #333);
@@ -16,15 +20,44 @@ body{
     font-weight: bold;
 }
 
-.main{
+
+.item{
 width: 430px;
 
 }
-
 .playlist-container{
 
     height: 110px;
 }
+.play, .playCard{
+    position: relative;
+}
+.play span{
+    color: #1ED760;
+    font-size: 3em;
+    position: absolute;
+    right: -5px;
+    top: -22px;
+    opacity: 0;
+    transition: all ease 0.4s;
+}
+.playCard span{
+    color: #1ED760;
+    font-size: 4em;
+    position: absolute;
+    right: 70px;
+    top: -50px;
+    opacity: 0;
+    transition: all ease 0.4s;
+}
+.play span:hover, .playCard span:hover{
+    opacity: 1;
+    transform: translateY(-20px);
+  
+}
+
+
+
 #img-playlist {
     height: inherit;
 }
@@ -48,7 +81,7 @@ width: 430px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .player-top i {
@@ -58,14 +91,14 @@ width: 430px;
 }
 
 .player-top i:hover,
-.play-settings i:hover {
+.player-settings i:hover {
     cursor: pointer;
     color: #ffffff;
 }
 
 .player-top i:active,
-.play-settings i:active,
-.rel-like i:active {
+.player-settings i:active,
+.album-player i:active {
     transform: scale(1.2);
 }
 
@@ -84,7 +117,7 @@ width: 430px;
 }
 .player-line:hover,
 .settings-line:hover,
-.rel-like i:hover {
+.album-player i:hover {
     cursor: pointer;
 }
 
@@ -97,6 +130,8 @@ width: 430px;
 .player-settings i {
     margin-right: 10px;
 }
+
+
 
 .slidecontainer {
     width: 100%;
@@ -128,3 +163,4 @@ width: 430px;
     bottom: 0;
     z-index: 1;
 }
+
