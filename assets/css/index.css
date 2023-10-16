@@ -1,0 +1,130 @@
+body{
+    background: linear-gradient(to top, #000, #333);
+}
+
+.sidebar{
+    
+    background-color: black;
+}
+.album-row{
+    background: linear-gradient(to top, #000, #333);
+}
+#play-btn{
+    background-color: #1ED760;
+    color: #000;
+    border: none;
+    font-weight: bold;
+}
+
+.main{
+width: 430px;
+
+}
+
+.playlist-container{
+
+    height: 110px;
+}
+#img-playlist {
+    height: inherit;
+}
+.card img{
+    width: auto;
+    padding-top: 1em;
+}
+
+.album-player{
+    height: 100px;
+}
+#album-img{
+    height: 60%;
+}
+.player {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.player-top i {
+    margin: 0 15px 10px;
+    color: lightgrey;
+    transition-duration: 0.2s;
+}
+
+.player-top i:hover,
+.play-settings i:hover {
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.player-top i:active,
+.play-settings i:active,
+.rel-like i:active {
+    transform: scale(1.2);
+}
+
+.player-bottom span {
+    
+    font-size: 10px;
+}
+
+.player-line {
+    width: 90%;
+    border: 2px solid grey;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 10px;
+    transition-duration: 0.2s;
+}
+.player-line:hover,
+.settings-line:hover,
+.rel-like i:hover {
+    cursor: pointer;
+}
+
+.player-settings {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.player-settings i {
+    margin-right: 10px;
+}
+
+.slidecontainer {
+    width: 100%;
+    position: relative;
+    bottom: 5px;
+}
+
+.slider {
+    width: 50%;
+    height: 3px;
+    background: grey;
+    border-radius: 5px;
+}
+
+.slider:hover {
+    background-color: lightgrey;
+}
+
+.slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: lightgrey;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.fixed-bottom{
+    background-color: #000;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
