@@ -1,19 +1,18 @@
 #scrolling-text {
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide the overflow text */
-  width: 100%; /* Adjust the width as needed */
-  animation: scroll 6s linear infinite; /* Add a scrolling animation */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  animation: scroll 6s linear infinite;
 }
 
-/* Define the scrolling animation */
 @keyframes scroll {
   0% {
-    transform: translateX(0%); /* Start offscreen on the right */
+    transform: translateX(0%);
   }
   50% {
-    transform: translateX(0%); /* Scroll to the left */
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-100%); /* Scroll to the left */
+    transform: translateX(-100%);
   }
 }
