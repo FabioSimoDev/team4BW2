@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="row">
           <!-- sidebar sinistra -->
-          <div class="sidebar col col-md-2 pt-3">
+          <div class="sidebar col col-md-2 pt-3 d-none d-lg-block">
             <!-- navbar -->
             <nav class="navbar navbar-expand-lg">
               <div class="container-fluid">
@@ -62,7 +62,7 @@
             </nav>
             <!-- fine navbar -->
 
-            <ul class="ms-3 mt-5 list-unstyled border-bottom">
+            <ul class="d-none d-lg-block ms-3 mt-5 list-unstyled border-bottom">
               <li class="nav-item">
                 <a class="nav-link" href="#"
                   ><i class="bi bi-plus-square-fill me-2"></i>New playlist</a
@@ -82,7 +82,9 @@
           </div>
           <!-- contenuti centrali -->
           <div class="col col-md-8 pt-3">
-            <div class="d-flex justify-content-between align-items-center">
+            <div
+              class="d-md-flex justify-content-md-between align-items-md-center d-none"
+            >
               <div>
                 <button class="btn btn-dark rounded-circle">
                   <i class="bi bi-caret-left"></i>
@@ -124,7 +126,7 @@
               </div>
             </div>
 
-            <div class="album-row mt-3">
+            <div class="album-row d-none d-lg-block mt-3">
               <!-- playlist items -->
               <div class="d-flex p-4">
                 <img
@@ -177,7 +179,14 @@
               </div>
             </div>
             <!-- sezione 2-->
-            <h4 class="mt-3">Buonasera</h4>
+            <div class="d-flex justify-content-between align-items-baseline">
+              <h4 class="mt-3">Good Evening</h4>
+              <div class="icon-group d-flex d-lg-none fs-4">
+                <i class="bi bi-bell"></i>
+                <i class="bi bi-clock-history ms-3"></i>
+                <i class="bi bi-gear ms-3"></i>
+              </div>
+            </div>
             <div class="row justify-content-evenly">
               <div class="item col col-md-4 bg-dark px-0 ms-3 mb-3 rounded">
                 <div
@@ -279,9 +288,10 @@
               </div>
             </div>
             <!-- sezione 3 -->
+
             <h4 class="mt-3">Others</h4>
-            <div class="row justify-content-around">
-              <div class="col col-lg-2 col-md-4 col-sm-6 mb-3">
+            <div class="row justify-content-lg-around">
+              <div class="col col-lg-2 col-md-4 col-12 mb-3">
                 <div class="card">
                   <img
                     src="assets/imgs/search/image-1.jpeg"
@@ -297,7 +307,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col col-lg-2 col-md-4 col-sm-6 mb-3">
+              <div class="col col-lg-2 col-md-4 col-12 mb-3">
                 <div class="card">
                   <img
                     src="assets/imgs/search/image-1.jpeg"
@@ -313,7 +323,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col col-lg-2 col-md-4 col-sm-6 mb-3">
+              <div class="col col-lg-2 col-md-4 col-12 mb-3">
                 <div class="card">
                   <img
                     src="assets/imgs/search/image-1.jpeg"
@@ -329,7 +339,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col col-lg-2 col-md-4 col-sm-6 mb-3">
+              <div class="col col-lg-2 col-md-4 col-12 mb-3">
                 <div class="card">
                   <img
                     src="assets/imgs/search/image-1.jpeg"
@@ -345,7 +355,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col col-lg-2 col-md-4 col-sm-6 me-2">
+              <div class="col col-lg-2 col-md-4 col-12 me-2">
                 <div class="card">
                   <img
                     src="assets/imgs/search/image-1.jpeg"
@@ -364,12 +374,14 @@
             </div>
           </div>
           <!-- sidebar destra -->
-          <div class="sidebar col col-md-2 pt-3">
+
+          <div class="sidebar col col-md-2 pt-3 d-none d-lg-block">
             <!-- contenuti aggiuntivi -->
             <h5>Friends activity</h5>
           </div>
+
           <!-- barra riproduzione musicale -->
-          <div class="container-fluid fixed-bottom">
+          <div class="container-fluid fixed-bottom d-none d-lg-block">
             <div class="row">
               <div class="album-player col d-flex align-items-center">
                 <img
@@ -416,6 +428,51 @@
             </div>
           </div>
           <!-- fine barra -->
+          <!-- seconda barra di riproduzione -->
+          <div
+            class="d-flex d-lg-none justify-content-between align-items-baseline bg-dark rounded my-3 sticky-bottom"
+          >
+            <p class="moving-text ms-3">Titolo della canzone che scorre</p>
+            <div class="fs-2">
+              <i class="bi bi-pc-display"></i>
+              <i class="bi bi-suit-heart ms-3"></i>
+              <i class="bi bi-play-fill ms-3"></i>
+            </div>
+          </div>
+          <!-- fine barra -->
+          <!-- nuova nav bar -->
+          <div class="new-navbar d-lg-none">
+            <ul class="navbar-nav flex-row justify-content-around">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  ><i
+                    class="bi bi-house-door-fill me-2 d-flex flex-column align-items-center fs-1"
+                  ></i
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><i
+                    class="bi bi-search me-2 d-flex flex-column align-items-center fs-1"
+                  ></i
+                  >Search</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  ><i
+                    class="bi bi-collection me-2 d-flex flex-column align-items-center fs-1"
+                  ></i
+                  >Your Library</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- fine nav bar -->
         </div>
       </div>
     </main>

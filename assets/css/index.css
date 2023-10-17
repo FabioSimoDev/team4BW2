@@ -22,9 +22,10 @@ body{
 
 
 .item{
-width: 430px;
-
+width: 370px;
 }
+
+
 .playlist-container{
 
     height: 110px;
@@ -164,3 +165,31 @@ width: 430px;
     z-index: 1;
 }
 
+.sticky-bottom{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    position: sticky;
+    bottom: 65px;
+    z-index: 1;
+}
+.moving-text {
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+}
+
+    @keyframes scrollText {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+  }
+  .new-navbar {
+    position: sticky;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1; 
+  }
