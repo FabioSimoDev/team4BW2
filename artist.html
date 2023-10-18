@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" class="">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,10 +11,10 @@
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-  <body class="bg-mobile">
-    <div class="container-fluid vh-100">
+  <body class="bg-mobile h-100">
+    <div class="container-fluid vh-100 h-100">
       <div class="row position-relative flex-nowrap h-100">
-        <div class="customcol-5 bg-black d-mobile-none">
+        <div class="customcol-5 bg-black d-mobile-none vh-150">
           <aside class="p-2">
             <header>
               <nav class="d-flex align-items-center pb-3 text-truncate">
@@ -212,6 +212,7 @@
           <!-- NAV BAR -->
           <section
             class="new-song-hero-container h-50 d-flex flex-column justify-content-between"
+            id="hero"
           >
             <!-- SECTION HERO MOBILE VERSION -->
             <section
@@ -523,7 +524,7 @@
                       ></i>
                     </div>
                     <div class="col">
-                      <p>Hai messo mi piace a 11 brani</p>
+                      <p class="m-0">Hai messo mi piace a 11 brani</p>
                       <p class="text-grey">di Yellowcard</p>
                     </div>
                   </div>
@@ -910,7 +911,7 @@
           </main>
         </div>
         <div
-          class="customcol-4 right-column-header fixed-right bg-black py-2 px-0 d-mobile-none flex-grow-1"
+          class="customcol-4 vh-150 right-column-header fixed-right bg-black py-2 px-0 d-mobile-none flex-grow-1"
         >
           <div
             class="d-flex justify-content-between flex-column right-column-container"
@@ -1262,5 +1263,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="./artist.js"></script>
   </body>
 </html>
