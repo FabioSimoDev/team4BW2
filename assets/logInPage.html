@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accedi-Spotify</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body
+    style="
+      background-color: #191919;
+
+      font-family: Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      width: 100%;
+    "
+  >
+    <header class="bg-black position-relative pt-1 border border-black">
+      <div class="d-flex ms-5 my-5">
+        <i
+          class="bi bi-spotify text-white fs-3 me-2"
+          style="font-size: 50vw"
+        ></i>
+        <p class="fs-6 mt-2 text-white">Spotify</p>
+      </div>
+    </header>
+
+    <div class="col col-lg-2"></div>
+    <div
+      class="col col-lg-15 d-lg-flex align-items-lg-center justify-content-lg-center"
+    >
+      <main
+        class="col-lg-6 d-lg-flex align-items-lg-center justify-content-lg-center bg-black border border-black mx-md-5 mt-md-5 pt-md-5 rounded-top"
+      >
+        <div
+          class="container d-md-flex flex-md-column justify-content-md-center bg-md-black"
+        >
+          <div class="row">
+            <div class="col col-1"></div>
+            <div class="col col-10">
+              <h1
+                class="ms-5 mb-5 col-lg-11 ms-lg-4 d-md-flex justify-content-md-center text-white fw-bolder"
+              >
+                Accedi a Spotify
+              </h1>
+              <div
+                class="d-flex flex-column align-items-center justify-content-center"
+              >
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary rounded-pill p-3 p-md-3 p-lg-4 col-md-7 col-lg-6 col-11 mb-2 fw-bold text-white"
+                >
+                  <i class="bi bi-google text-danger me-4"></i>
+                  Continua con Google
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary rounded-pill p-3 p-md-3 p-lg-4 col-md-7 col-lg-6 col-11 mb-2 fw-bold text-white"
+                >
+                  <i class="bi bi-facebook text-primary me-4"></i>
+                  Continua con Facebook
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary rounded-pill p-3 p-md-3 p-lg-4 col-md-7 col-lg-6 col-11 mb-2 fw-bold text-white"
+                >
+                  <i class="bi bi-apple me-4"></i>
+                  Continua con Apple
+                </button>
+              </div>
+              <hr class="text-white my-5" />
+
+              <form
+                class="d-lg-flex flex-lg-column align-items-lg-center justify-content-lg-center"
+              >
+                <div
+                  class="mb-3 col-lg-5 justify-content-lg-center align-items-lg-center"
+                >
+                  <label
+                    for="exampleInputEmail1"
+                    class="form-label text-white fw-bold"
+                    >Indirizzo e-mail o nome utente</label
+                  >
+                  <input
+                    type="email"
+                    style="background-color: #191919"
+                    class="form-control col-md-7 rounded-0 p-2 fw-bold"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Indirizzo e-mail o nome utente"
+                    required
+                  />
+                </div>
+                <div class="mb-3 col-lg-5">
+                  <label
+                    for="exampleInputPassword1"
+                    class="form-label text-white fw-bold"
+                    >Password<button
+                      type="button"
+                      class="btn"
+                      data-bs-toggle="button"
+                    >
+                      <i class="bi bi-eye-slash text-white fs-4"></i>
+                    </button>
+                  </label>
+                  <input
+                    type="password"
+                    style="background-color: #191919"
+                    class="form-control col-md-7 rounded-0 p-2 fw-bold"
+                    placeholder="Password"
+                    id="exampleInputPassword1"
+                    required
+                  />
+                </div>
+
+                <div
+                  class="form-check form-switch mb-3 justify-content-lg-start align-items-lg-start"
+                >
+                  <input
+                    class="form-check-input p-2 border border-success"
+                    style="background-color: #1ed760"
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckChecked"
+                    checked
+                  />
+                  <label
+                    class="form-check-label text-white fw-bold"
+                    for="flexSwitchCheckChecked"
+                    >Ricordami</label
+                  >
+                </div>
+
+                <div
+                  class="d-flex col-lg-6 flex-column align-items-center justify-content-center mt-5 mb-5"
+                >
+                  <button
+                    type="submit"
+                    class="btn btn-primary col-lg-11 p-lg-3 mb-4 text-black fw-bold border border-0 rounded-pill col-md-7 col-9 p-3"
+                    style="background-color: #1ed760"
+                  >
+                    Accedi
+                  </button>
+                  <a class="text-white fw-bold" href="#"
+                    >Hai dimenticato la password?</a
+                  >
+                </div>
+              </form>
+              <hr class="text-white mb-5" />
+
+              <div
+                class="d-flex flex-column align-items-center justify-content-center flex-lg-row mb-5"
+              >
+                <h6
+                  class="text-white fw-bold text-secondary-emphasis me-2 mt-2"
+                >
+                  Non hai un account?
+                </h6>
+                <a
+                  class="text-white fw-bold"
+                  href="https://www.spotify.com/it/signup"
+                  >Iscriviti a Spotify</a
+                >
+              </div>
+            </div>
+            <div class="col col-1"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="col col-lg-2"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="logInPage.js"></script>
+  </body>
+</html>
+
+<!-- ingrandire il logo nell'header a md -->
+<!-- scritte responsive ingrandire pagina -->
+<!-- colorare il pallino di nero di Ricordami -->
+<!-- g di google -->
+<!-- colore scritta finale -->
+<!-- sfumatura fine pagina -->
+<!-- scritta dentro input -->
+<!-- occhio password dentro input-->
