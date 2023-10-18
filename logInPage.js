@@ -21,7 +21,7 @@ password: inputPassword.value
 
 }
 
-localStorage.setItem('account-memory', newLogIn)
+localStorage.setItem('account-memory', JSON.stringify(newLogIn) )
 return save
 
 }
@@ -29,25 +29,13 @@ return save
 save()
 
 
+// mostra password
 
-
-
-
-// const passwordButton=document.getElementById("passbut")
-
-// passwordButton.addEventListener("click",function(e){
-
-// e.preventDefault()
-
-// let input=document.getElementById("exampleInputPassword1")
-
-// if (passwordButton){input.value}
-// else{
-
-
-
-
-// }
-
-
-// })
+function myFunction() {
+    var x = document.getElementById("exampleInputPassword1");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }

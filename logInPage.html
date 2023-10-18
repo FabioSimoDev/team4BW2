@@ -80,6 +80,7 @@
               <hr class="text-white my-5" />
 
               <form
+                id="form"
                 class="d-lg-flex flex-lg-column align-items-lg-center justify-content-lg-center"
               >
                 <div
@@ -87,7 +88,7 @@
                 >
                   <label
                     for="exampleInputEmail1"
-                    class="form-label text-white fw-bold"
+                    class="form-label text-white opacity-100 fw-bold"
                     >Indirizzo e-mail o nome utente</label
                   >
                   <input
@@ -105,9 +106,10 @@
                     for="exampleInputPassword1"
                     class="form-label text-white fw-bold"
                     >Password<button
-                      id="passbut"
+                      onclick="myFunction()"
+                      id="pass"
                       type="button"
-                      class="btn"
+                      class="btn border border-0"
                       data-bs-toggle="button"
                     >
                       <i class="bi bi-eye-slash text-white fs-4"></i>
