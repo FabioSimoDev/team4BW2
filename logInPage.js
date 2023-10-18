@@ -1,16 +1,19 @@
 
-const accessoButton= document.getElementById("accesso")
+const accessoButton= document.getElementById("accedibut")
 
 
-const formReference=document.getElementById("form")
-
-formReference.addEventListener("submit", function(e){
+accessoButton.addEventListener("click", function(e){
 
 e.preventDefault()
 
+save()
+
+})
+
+const save = function(){
+    
 const inputEmail=document.getElementById("exampleInputEmail1")
 const inputPassword=document.getElementById("exampleInputPassword1")
-
 const newLogIn = {
 
 email: inputEmail.value,
@@ -18,10 +21,33 @@ password: inputPassword.value
 
 }
 
-const getLogIn = function({
+localStorage.setItem('account-memory', newLogIn)
+return save
 
-fetch()
+}
 
-})
+save()
 
-})
+
+
+
+
+
+// const passwordButton=document.getElementById("passbut")
+
+// passwordButton.addEventListener("click",function(e){
+
+// e.preventDefault()
+
+// let input=document.getElementById("exampleInputPassword1")
+
+// if (passwordButton){input.value}
+// else{
+
+
+
+
+// }
+
+
+// })
