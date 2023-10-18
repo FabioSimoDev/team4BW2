@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body class="bg-mobile">
+    <div
+      class="overlay-loading vw-100 vh-100 z-3 fixed-top bg-dark top-0 d-flex justify-content-center align-items-center"
+    >
+      <div
+        class="spinner-border text-success"
+        role="status"
+        style="width: 3rem; height: 3rem"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
     <div class="container-fluid">
       <div class="row position-relative flex-nowrap">
         <div class="customcol-5 bg-black d-mobile-none">
@@ -152,7 +163,7 @@
                     class="d-flex gap-3 text-decoration-none text-white"
                   >
                     <img
-                      src="/assets/imgs/likedSongs.png"
+                      src="assets/imgs/likedSongs.png"
                       width="27px"
                       style="border-radius: 5px"
                       alt="likedSongs"
@@ -176,7 +187,7 @@
                     class="d-flex gap-3 text-decoration-none text-white"
                   >
                     <img
-                      src="/assets/imgs/savedEpisode.png"
+                      src="assets/imgs/savedEpisode.png"
                       width="27px"
                       style="border-radius: 5px"
                       alt="likedSongs"
@@ -254,7 +265,7 @@
                 aria-expanded="false"
               >
                 <img
-                  src="/assets/imgs/main/image-1.jpg"
+                  src="assets/imgs/main/image-1.jpg"
                   width="30px"
                   alt="PP"
                   class="rounded-pill"
@@ -274,29 +285,32 @@
             <div
               class="new-song-hero-container w-100 d-flex gap-3 ps-2 py-4 align-items-center"
             >
-              <div class="d-flex">
+              <div class="d-flex hero-content">
                 <div class="new-song-hero-img mx-2">
                   <img
-                    src="/assets/imgs/main/image-1.jpg"
+                    src="..."
                     alt="song image"
                     class="img-fluid"
+                    id="hero-img"
+                    width="300px"
                   />
                 </div>
                 <div class="col d-flex flex-column justify-content-between">
                   <div class="new-song-hero-header">
                     <p class="fw-semibold">ALBUM</p>
                   </div>
-                  <h2 class="new-song-hero-title fw-bold pe-2">
+                  <h2 class="new-song-hero-title fw-bold pe-2" role="button">
                     VIOLA (feat. Salmo)
                   </h2>
-                  <p class="new-song-hero-artists">Fedez, Salmo</p>
-                  <p class="new-song-hero-description text-truncate">
+                  <p id="new-song-hero-artists">Fedez, Salmo</p>
+                  <p id="new-song-hero-description" class="text-truncate">
                     Ascolta il nuovo singolo di Fedez e Salmo!
                   </p>
                   <div
                     class="new-song-hero-buttons d-flex align-items-center gap-3"
                   >
                     <button
+                      id="play-preview"
                       class="btn btn-success rounded-pill text-black fw-semibold px-4"
                     >
                       Play</button
@@ -314,9 +328,9 @@
             <div class="d-mobile-flex justify-content-between pe-1 pe-md-0">
               <h2 class="fw-bold">Buonasera</h2>
               <div class="icons d-md-none d-flex gap-3">
-                <img src="/assets/imgs/bell.svg" alt="bell" />
-                <img src="/assets/imgs/Recently Played Icon.svg" alt="" />
-                <img src="/assets/imgs/Setting Icon.svg" alt="" />
+                <img src="assets/imgs/bell.svg" alt="bell" />
+                <img src="assets/imgs/Recently Played Icon.svg" alt="" />
+                <img src="assets/imgs/Setting Icon.svg" alt="" />
               </div>
             </div>
             <div class="buttons d-md-none d-flex gap-1">
@@ -338,7 +352,7 @@
                   <div class="row g-0">
                     <div class="customcol-md-5 col">
                       <img
-                        src="/assets/imgs/main/image-2.jpg"
+                        src="assets/imgs/main/image-2.jpg"
                         class="img-fluid"
                         alt=""
                       />
@@ -352,7 +366,7 @@
                   <div class="row g-0">
                     <div class="customcol-md-5 col">
                       <img
-                        src="/assets/imgs/main/image-2.jpg"
+                        src="assets/imgs/main/image-2.jpg"
                         class="img-fluid"
                         alt=""
                       />
@@ -366,7 +380,7 @@
                   <div class="row g-0">
                     <div class="customcol-md-5 col">
                       <img
-                        src="/assets/imgs/main/image-2.jpg"
+                        src="assets/imgs/main/image-2.jpg"
                         class="img-fluid"
                         alt=""
                       />
@@ -380,7 +394,7 @@
                   <div class="row g-0">
                     <div class="customcol-md-5 col">
                       <img
-                        src="/assets/imgs/main/image-2.jpg"
+                        src="assets/imgs/main/image-2.jpg"
                         class="img-fluid"
                         alt=""
                       />
@@ -394,7 +408,7 @@
                   <div class="row g-0">
                     <div class="customcol-md-5 col">
                       <img
-                        src="/assets/imgs/main/image-2.jpg"
+                        src="assets/imgs/main/image-2.jpg"
                         class="img-fluid"
                         alt=""
                       />
@@ -408,7 +422,7 @@
                   <div class="row g-0">
                     <div class="customcol-md-5 col">
                       <img
-                        src="/assets/imgs/main/image-2.jpg"
+                        src="assets/imgs/main/image-2.jpg"
                         class="img-fluid"
                         alt=""
                       />
@@ -428,7 +442,7 @@
                     <div class="col-6 col-md-12 pe-xs-0">
                       <div class="card-image ps-xs-3 py-3">
                         <img
-                          src="/assets/imgs/main/image-4.jpg"
+                          src="assets/imgs/main/image-4.jpg"
                           class="card-img-top rounded"
                           alt="..."
                         />
@@ -452,7 +466,7 @@
                   >
                     <div class="d-flex card-footer-left align-items-center">
                       <img
-                        src="/assets/imgs/Heart Icon.svg"
+                        src="assets/imgs/Heart Icon.svg"
                         alt=""
                         width="30px"
                       />
@@ -480,7 +494,7 @@
                     <div class="col-6 col-md-12 pe-xs-0">
                       <div class="card-image ps-xs-3 py-3">
                         <img
-                          src="/assets/imgs/main/image-4.jpg"
+                          src="assets/imgs/main/image-4.jpg"
                           class="card-img-top rounded"
                           alt="..."
                         />
@@ -504,7 +518,7 @@
                   >
                     <div class="d-flex card-footer-left align-items-center">
                       <img
-                        src="/assets/imgs/Heart Icon.svg"
+                        src="assets/imgs/Heart Icon.svg"
                         alt=""
                         width="30px"
                       />
@@ -532,7 +546,7 @@
                     <div class="col-6 col-md-12 pe-xs-0">
                       <div class="card-image ps-xs-3 py-3">
                         <img
-                          src="/assets/imgs/main/image-4.jpg"
+                          src="assets/imgs/main/image-4.jpg"
                           class="card-img-top rounded"
                           alt="..."
                         />
@@ -556,7 +570,7 @@
                   >
                     <div class="d-flex card-footer-left align-items-center">
                       <img
-                        src="/assets/imgs/Heart Icon.svg"
+                        src="assets/imgs/Heart Icon.svg"
                         alt=""
                         width="30px"
                       />
@@ -584,7 +598,7 @@
                     <div class="col-6 col-md-12 pe-xs-0">
                       <div class="card-image ps-xs-3 py-3">
                         <img
-                          src="/assets/imgs/main/image-4.jpg"
+                          src="assets/imgs/main/image-4.jpg"
                           class="card-img-top rounded"
                           alt="..."
                         />
@@ -608,7 +622,7 @@
                   >
                     <div class="d-flex card-footer-left align-items-center">
                       <img
-                        src="/assets/imgs/Heart Icon.svg"
+                        src="assets/imgs/Heart Icon.svg"
                         alt=""
                         width="30px"
                       />
@@ -636,7 +650,7 @@
                     <div class="col-6 col-md-12 pe-xs-0">
                       <div class="card-image ps-xs-3 py-3">
                         <img
-                          src="/assets/imgs/main/image-4.jpg"
+                          src="assets/imgs/main/image-4.jpg"
                           class="card-img-top rounded"
                           alt="..."
                         />
@@ -660,7 +674,7 @@
                   >
                     <div class="d-flex card-footer-left align-items-center">
                       <img
-                        src="/assets/imgs/Heart Icon.svg"
+                        src="assets/imgs/Heart Icon.svg"
                         alt=""
                         width="30px"
                       />
@@ -755,7 +769,7 @@
                   <div class="d-flex align-items-center">
                     <div class="">
                       <img
-                        src="/assets/imgs/main/image-14.jpg"
+                        src="assets/imgs/main/image-14.jpg"
                         alt="friendPP"
                         class="img-fluid rounded-circle"
                         width="35px"
@@ -803,7 +817,7 @@
                   <div class="d-flex align-items-center">
                     <div class="">
                       <img
-                        src="/assets/imgs/main/image-15.jpg"
+                        src="assets/imgs/main/image-15.jpg"
                         alt="friendPP"
                         class="img-fluid rounded-circle"
                         width="35px"
@@ -851,7 +865,7 @@
                   <div class="d-flex align-items-center">
                     <div class="">
                       <img
-                        src="/assets/imgs/main/image-16.jpg"
+                        src="assets/imgs/main/image-16.jpg"
                         alt="friendPP"
                         class="img-fluid rounded-circle"
                         width="35px"
@@ -900,26 +914,29 @@
       </div>
     </div>
     <footer
-      class="z-5 fixed-bottom w-100 bottom-0 px-md-3 py-3 bg-dark border-top footer"
+      class="z-2 fixed-bottom w-100 bottom-0 px-md-3 py-3 bg-dark border-top footer"
     >
       <div class="row flex-nowrap d-mobile-none align-items-center">
         <div class="customcol-7">
           <div class="d-flex align-items-center gap-3">
             <div class="footer-left-img">
               <img
-                src="/assets/imgs/main/image-18.jpg"
+                src="assets/imgs/main/image-18.jpg"
                 alt="song-image"
                 class="img-fluid rounded"
                 width="60px"
+                id="player-img"
               />
             </div>
             <div class="footer-left-text d-flex flex-column text-truncate">
-              <p class="m-0">Fat Funny Friend</p>
-              <small class="opacity-75">Maddie Zahm</small>
+              <p class="m-0" id="current-track-title">Fat Funny Friend</p>
+              <small class="opacity-75" id="current-track-author"
+                >Maddie Zahm</small
+              >
             </div>
             <div class="footer-left-like-icon d-flex flex-column ps-2">
               <img
-                src="/assets/imgs/Heart Icon.svg"
+                src="assets/imgs/Heart Icon.svg"
                 alt="heart icon"
                 class="opacity-75"
                 width="22px"
@@ -941,19 +958,23 @@
               <i class="bi bi-repeat"></i>
             </div>
             <div class="footer-play-bar d-flex align-items-center gap-2">
-              <span>0:58</span>
+              <span id="track-current-second">0:58</span>
               <div
                 class="progress"
                 role="progressbar"
                 aria-label="Basic example"
-                aria-valuenow="30"
+                aria-valuenow="0"
                 aria-valuemin="0"
                 aria-valuemax="100"
                 style="height: 5px; width: 100%"
               >
-                <div class="progress-bar bg-white" style="width: 30%"></div>
+                <div
+                  id="current-track-progress-bar"
+                  class="progress-bar bg-white"
+                  style="width: 0%; transition: width 0.1s linear"
+                ></div>
               </div>
-              <span>3:20</span>
+              <span id="current-track-duration">3:20</span>
             </div>
           </div>
         </div>
@@ -962,8 +983,8 @@
             class="d-flex justify-content-end align-items-center gap-2 h-100"
           >
             <i class="bi bi-mic"></i>
-            <img src="/assets/imgs/Queue Icon.svg" alt="queue" />
-            <img src="/assets/imgs/Device Icon.svg" alt="device" />
+            <img src="assets/imgs/Queue Icon.svg" alt="queue" />
+            <img src="assets/imgs/Device Icon.svg" alt="device" />
             <i class="bi bi-volume-up"></i>
             <div
               class="progress"
@@ -982,7 +1003,7 @@
       </div>
       <div class="row row-cols-3 d-md-none px-4">
         <div class="home-footer d-flex flex-column align-items-center">
-          <img src="/assets/imgs/homepage.svg" alt="" width="22px" />
+          <img src="assets/imgs/homepage.svg" alt="" width="22px" />
           <small>Home</small>
         </div>
         <div class="search-footer d-flex flex-column align-items-center">
@@ -1034,5 +1055,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="script/index.js"></script>
   </body>
 </html>

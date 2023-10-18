@@ -5,6 +5,13 @@ $mobile-background: #121212;
 @import '../bootstrap-5.3.2/scss/functions';
 @import '../bootstrap-5.3.2/scss/variables';
 
+@import 'anim';
+
+.fade-out{
+    animation: fadeOutZoomIn 2s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
 
 
 $grey-1000: #b2b2b2;
