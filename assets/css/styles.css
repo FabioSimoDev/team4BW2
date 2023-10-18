@@ -1,4 +1,23 @@
 @charset "UTF-8";
+@keyframes fadeOutZoomIn {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+.fade-out {
+  animation: fadeOutZoomIn 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 .bg-custom-grey {
   background-color: #b2b2b2 !important;
 }
