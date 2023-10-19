@@ -1,4 +1,8 @@
 @charset "UTF-8";
+body{
+  background: linear-gradient(to top, #000000, #212121);
+height: 100%;
+}
 .bg-custom-grey {
   background-color: #b2b2b2 !important;
 }
