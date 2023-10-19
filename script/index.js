@@ -271,7 +271,7 @@ const mostLikedAlgorithm = function () {
   return mostLikedArtist;
 };
 
-const fillPage = async function (songsData) {
+const fillPage = function (songsData) {
   const randomTrack = Math.floor(Math.random() * songsData.data.length);
   const track = songsData.data[randomTrack];
   currentlyPlaying = track;
