@@ -63,7 +63,6 @@ const albumId = addressBarContent.get("_albumId");
 console.log(albumId);
 
 // funzione per ricreare la sezione Hero dell'album
-
 const generateHeroSection = function (albumData) {
   const heroContainer = document.getElementById("hero-details");
 
@@ -93,7 +92,7 @@ const generateHeroSection = function (albumData) {
       alt="artist image"
       class="rounded-circle img-album"
       style="height: 30px; width: 30px" />
-    <a class="artist text-decoration-none text-white fw-bold">${
+    <a class="artist text-decoration-none fw-bold">${
       albumData.artist.name
     } </a><span class="year">  · ${albumData.release_date.slice(
     0,
@@ -111,17 +110,10 @@ const generateHeroSection = function (albumData) {
   </div>
 
   `;
-  // setTimeout(function () {
-  //   const heroImage = document.getElementById("hero-img");
-  //   console.log(heroImage);
-  //   const mostRecurrentColor = pad(
-  //     findMostRecurrentColor(getColors(draw(heroImage)))
-  //   );
-  // }, 2000);
 
   // Creazione della lista ordinata con classi
   const tracklistContainer = document.createElement("ol");
-  tracklistContainer.className = "album-tracklist mt-4 mb-5 pb-5"; // Aggiungi le classi necessarie
+  tracklistContainer.className = "album-tracklist mt-4"; // Aggiungi le classi necessarie
 
   albumData.tracks.data.forEach((track) => {
     const listItem = document.createElement("li");
@@ -132,7 +124,7 @@ const generateHeroSection = function (albumData) {
 
     // Creazione del titolo in un div
     const completeTitle = document.createElement("div");
-    completeTitle.classList.add("col", "mb-3");
+    completeTitle.classList.add("col", "mb-2");
     const titleHeading = document.createElement("h5");
     titleHeading.textContent = `${track.title}`;
     titleHeading.classList.add("mb-0");
@@ -143,7 +135,7 @@ const generateHeroSection = function (albumData) {
     const artistLink = document.createElement("a");
     artistLink.textContent = albumData.artist.name;
     artistLink.href = "artist.html";
-    artistLink.classList.add("text-decoration-none", "text-white", "fs-ligth");
+    artistLink.classList.add("text-decoration-none");
     completeTitle.appendChild(artistLink);
     trackInfo.appendChild(completeTitle);
 
