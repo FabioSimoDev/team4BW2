@@ -66,7 +66,6 @@ console.log(albumId);
 
 const generateHeroSection = function (albumData) {
   const heroContainer = document.getElementById("hero-details");
-
   const trackContainer = document.getElementById("track-container");
   heroContainer.innerHTML = `
   <div class="d-flex hero-content" >
@@ -93,7 +92,7 @@ const generateHeroSection = function (albumData) {
       alt="artist image"
       class="rounded-circle img-album"
       style="height: 30px; width: 30px" />
-    <a class="artist text-decoration-none text-white fw-bold">${
+    <a id=artistLink class="artist text-decoration-none text-white fw-bold">${
       albumData.artist.name
     } </a><span class="year">  · ${albumData.release_date.slice(
     0,
@@ -111,6 +110,12 @@ const generateHeroSection = function (albumData) {
   </div>
 
   `;
+  // Imposta l'attributo href con l'URL dinamico
+  const artistLink = document.getElementById("artistLink");
+  const artistId = albumData.artist.id;
+  const dynamicURL = `artist.html?artistId=${artistId}`;
+  artistLink.setAttribute("href", dynamicURL);
+
   // setTimeout(function () {
   //   const heroImage = document.getElementById("hero-img");
   //   console.log(heroImage);
@@ -142,7 +147,7 @@ const generateHeroSection = function (albumData) {
     // Creazione dell'elemento <a> per il nome dell'artista
     const artistLink = document.createElement("a");
     artistLink.textContent = albumData.artist.name;
-    artistLink.href = "artist.html";
+    artistLink.href = `artist.html?artistId=${track.artist.id} `;
     artistLink.classList.add("text-decoration-none", "text-white", "fs-ligth");
     completeTitle.appendChild(artistLink);
     trackInfo.appendChild(completeTitle);

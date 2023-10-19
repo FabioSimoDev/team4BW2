@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body{
   background: linear-gradient(to top, #000000, #212121);
-height: 100%;
+
 }
 .bg-custom-grey {
   background-color: #b2b2b2 !important;
@@ -31,6 +31,12 @@ li.active {
 .new-song-hero-buttons button {
   flex-grow: 0.03;
   padding-block: 0.8rem !important;
+}
+.btn-container{
+  height: 100px;
+}
+.btn-container i:hover{
+  transform: scale(1.1);
 }
 
 @media (min-width: 1900px) {
