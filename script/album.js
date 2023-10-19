@@ -92,9 +92,12 @@ const generateHeroSection = function (albumData) {
       alt="artist image"
       class="rounded-circle img-album"
       style="height: 30px; width: 30px" />
-    <span class="artist fw-bold">${
+    <a class="artist text-decoration-none fw-bold">${
       albumData.artist.name
-    } ·</span><span class="year">${albumData.release_date.slice(0, 4)} ·</span>
+    } </a><span class="year">  · ${albumData.release_date.slice(
+    0,
+    4
+  )}  · </span>
     <span class="ntracks">${albumData.tracks.data.length} brani,</span>
     <span class="dtracks fw-light">${(
       Math.floor((albumData.duration / 60) * 100) / 100
@@ -102,17 +105,63 @@ const generateHeroSection = function (albumData) {
       .toString()
       .replace(".", " min ")} sec.</span>
     </div>
-    <div class="new-song-hero-buttons d-flex align-items-center gap-3">
-    </div>
+    
    </div>
   </div>
 
   `;
+
+  // Creazione della lista ordinata con classi
   const tracklistContainer = document.createElement("ol");
-  tracklistContainer.className = "album-tracklist";
+  tracklistContainer.className = "album-tracklist mt-4"; // Aggiungi le classi necessarie
+
   albumData.tracks.data.forEach((track) => {
     const listItem = document.createElement("li");
-    listItem.textContent = track.title;
+
+    // Creazione di un div con le classi "prova d-flex justify-content-around"
+    const trackInfo = document.createElement("div");
+    trackInfo.className = "lista d-flex justify-content-between mx-4 ";
+
+    // Creazione del titolo in un div
+    const completeTitle = document.createElement("div");
+    completeTitle.classList.add("col", "mb-2");
+    const titleHeading = document.createElement("h5");
+    titleHeading.textContent = `${track.title}`;
+    titleHeading.classList.add("mb-0");
+
+    completeTitle.appendChild(titleHeading);
+
+    // Creazione dell'elemento <a> per il nome dell'artista
+    const artistLink = document.createElement("a");
+    artistLink.textContent = albumData.artist.name;
+    artistLink.href = "artist.html";
+    artistLink.classList.add("text-decoration-none");
+    completeTitle.appendChild(artistLink);
+    trackInfo.appendChild(completeTitle);
+
+    // Generazione di un numero casuale da 100 a 30000 per le riproduzioni
+    const randomReproductions =
+      Math.floor(Math.random() * (30000 - 100 + 1)) + 100;
+    const reproductionsParagraph = document.createElement("p");
+    reproductionsParagraph.textContent = `${randomReproductions}`;
+    reproductionsParagraph.classList.add("col", "text-center");
+    trackInfo.appendChild(reproductionsParagraph);
+
+    // Aggiunta della durata della canzone (sostituisci con la durata effettiva)
+    const durationInSeconds = track.duration;
+    const minutes = Math.floor(durationInSeconds / 60);
+    const seconds = durationInSeconds % 60;
+    const durationParagraph = document.createElement("p");
+    durationParagraph.textContent = `${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`;
+    durationParagraph.classList.add("col", "text-end"); // Sostituisci con la durata reale
+    trackInfo.appendChild(durationParagraph);
+
+    // Aggiungi il div "prova d-flex justify-content-around" come figlio dell'elemento lista
+    listItem.appendChild(trackInfo);
+
+    // Aggiungi l'elemento lista al contenitore della tracklist
     tracklistContainer.appendChild(listItem);
   });
 

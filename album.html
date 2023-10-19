@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" class="h-100">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="assets/css/album.css" />
   </head>
-  <body cz-shortcut-listen="true">
+  <body cz-shortcut-listen="true" class="h-100">
     <div class="container-fluid">
       <div class="row position-relative flex-nowrap">
         <!-- sidebar sx -->
@@ -220,7 +220,7 @@
         </div>
         <!-- fine sidebar sx -->
         <!-- sezione centrale (seconda colonna della row)-->
-        <div class="customcol-md-15 customcol-24 py-3 px-lg-5 px-3">
+        <div class="customcol-md-15 customcol-24 py-3 px-lg-5 px-3 h-100">
           <nav class="d-md-flex justify-content-between pb-3 d-mobile-none">
             <div class="arrows d-flex gap-3">
               <div
@@ -289,14 +289,15 @@
           >
             <!-- <div class="d-flex hero-content" ></div> -->
           </div>
-          <div id="track-container"></div>
-          <div class="prova">
-            <ol>
-              <li>
-                <h6>Montanelli-Intro</h6>
-                <p>Pinguini tattici</p>
-              </li>
-            </ol>
+
+          <div id="track-container">
+            <div
+              class="lista d-flex justify-content-between mx-4 mt-2 border-bottom"
+            >
+              <p># TITOLO</p>
+              <p>RIPRODUZIONI</p>
+              <p><i class="bi bi-clock"></i></p>
+            </div>
           </div>
         </div>
 
