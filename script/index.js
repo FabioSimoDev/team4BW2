@@ -271,11 +271,11 @@ const mostLikedAlgorithm = function () {
   return mostLikedArtist;
 };
 
-const fillPage = function (songsData) {
+const fillPage = async function (songsData) {
   const randomTrack = Math.floor(Math.random() * songsData.data.length);
   const track = songsData.data[randomTrack];
   currentlyPlaying = track;
-
+  getAverageColor(heroImg);
   heroImg.src = track.album.cover_big;
   console.log(track.album.cover_big);
   heroSongTitle.textContent = track.title_short;
@@ -377,6 +377,41 @@ const getGeneralData = async function () {
   } catch (error) {
     console.log(error);
   }
+};
+
+const getAverageColor = function (img) {
+  img.src = img;
+
+  img.onload = function () {
+    let canvas = document.createElement("canvas");
+    let ctx = canvas.getContext("2d");
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    let imageData = ctx.getImageData(0, 0, img.width, img.height).data;
+
+    let totalR = 0,
+      totalG = 0,
+      totalB = 0;
+
+    for (let i = 0; i < imageData.length; i += 4) {
+      totalR += imageData[i];
+      totalG += imageData[i + 1];
+      totalB += imageData[i + 2];
+    }
+
+    let averageR = Math.round(totalR / (imageData.length / 4));
+    let averageG = Math.round(totalG / (imageData.length / 4));
+    let averageB = Math.round(totalB / (imageData.length / 4));
+
+    let average = "rgb(" + averageR + "," + averageG + "," + averageB + ")";
+    console.log(average);
+
+    return average;
+  };
 };
 
 const recommendFill = function (songs) {
