@@ -8,8 +8,16 @@ $mobile-background: #121212;
 @import 'anim';
 
 .fade-out{
-    animation: fadeOutZoomIn 2s ease-in-out;
+    animation: fadeOutZoomIn 1s ease-in-out;
     animation-fill-mode: forwards;
+}
+
+[disabled=true]{
+    display: none !important;
+}
+
+[disabled=false]{
+    display: flex !important;
 }
 
 
