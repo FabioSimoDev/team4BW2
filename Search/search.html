@@ -1,0 +1,1308 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="text-white" style="background-color: #121212">
+    <div class="searchMobile mx-3 my-3 d-md-none">
+      <h1>Cerca</h1>
+      <!-- barra di ricerca -->
+      <div
+        class="position-sticky top-0 z-3 p-1"
+        style="background-color: #121212"
+      >
+        <div
+          class="search d-flex my-2 align-items-center"
+          style="background-color: #1b1b1b"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-search mx-3 p-0"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+          <input
+            id=""
+            type="search"
+            placeholder="Cosa vuoi ascoltare?"
+            class="bananaJoe searchD w-75 border-0 py-2 fs-3 text-white"
+            style="background-color: #1b1b1b"
+          />
+        </div>
+      </div>
+      <!-- barra di ricerca -->
+      <div id="canzoni"></div>
+      <div id="sfoglia" class="mt-4">
+        <h2 class="text-center">Sfoglia tutto</h2>
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!-- ROW SFOGLIA -->
+        <div class="row g-4 my-3">
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: E13300"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Podcast</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: #1e3264"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Creato per te</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: E8115C"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Nuove Uscite</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: 158A08"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Pop</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: BC5800"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Hip Hop</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: D84000"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">
+                  Dance/ <br />
+                  Elettronica
+                </h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: E0118B"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Latina</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: 8B66A9"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Classifiche</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: rgb(76, 76, 76)"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Allenamento</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: rgb(83, 214, 234)"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Viaggi</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: rgb(96, 198, 110)"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Estate</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- col1 -->
+          <div class="col col-6">
+            <a href="#" class="text-decoration-none text-white">
+              <div
+                style="background-color: black"
+                class="d-flex justify-content-between rounded overflow-hidden"
+              >
+                <h4 class="p-3">Metal</h4>
+                <div class="image mt-4 pt-3">
+                  <img
+                    src="../assets/imgs/main/image-15.jpg"
+                    alt=""
+                    width="100"
+                    class="rounded"
+                    style="transform: rotate(30deg)"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
+      <!--  -->
+      <!-- Player Mobile -->
+      <div
+        class="d-none ps-2 z-3 justify-content-between align-items-center py-2 rounded"
+        style="background-color: #262626; position: sticky; bottom: 10vh"
+      >
+        <div class="d-flex align-items-center">
+          <img src="assets/imgs/main/image-11.jpg" alt="" width="70" />
+          <div style="overflow: hidden">
+            <h2
+              id="scrolling-text "
+              class="text-white ms-3 my-0"
+              style="font-size: 2em"
+            >
+              SongTitle
+            </h2>
+          </div>
+        </div>
+        <div>
+          <img
+            src="assets/icons/more/home-svgrepo-com (1).svg"
+            alt=""
+            width="40"
+            class="mx-2 py-2"
+          />
+          <img
+            src="assets/icons/heart/heart-svgrepo-com.svg"
+            alt=""
+            width="40"
+            class="mx-2 py-2"
+          />
+          <img
+            src="assets/icons/play/play-svgrepo-com (1).svg"
+            alt=""
+            width="40"
+            class="mx-2 py-2"
+          />
+        </div>
+      </div>
+      <!-- Player Mobile -->
+      <!--  -->
+      <!--  -->
+      <!-- FOOTER -->
+      <footer
+        class="justify-content-around px-3 py-1 position-sticky bottom-0"
+        style="
+          display: flex;
+          background: rgb(18, 18, 18);
+          background: linear-gradient(
+            180deg,
+            rgba(18, 18, 18, 0.2884803579634979) 0%,
+            rgba(18, 18, 18, 1) 73%
+          );
+        "
+      >
+        <div class="text-white text-center">
+          <a href="index.html" class="text-white"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-house-door-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"
+              /></svg
+          ></a>
+          <p class="m-0">Home</p>
+        </div>
+
+        <div class="text-white text-center">
+          <a href="search.html" class="text-white"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+              /></svg
+          ></a>
+          <p class="m-0">Search</p>
+        </div>
+
+        <div class="text-white text-center">
+          <a href="" class="text-white">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 21 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.96497 0.785156C1.41125 0.785156 0.96228 1.23389 0.96228 1.78809V20.1777C0.96228 20.7319 1.41125 21.1807 1.96497 21.1807C2.51868 21.1807 2.96765 20.7319 2.96765 20.1777V1.78809C2.96765 1.23389 2.51868 0.785156 1.96497 0.785156Z"
+                fill="white"
+              />
+              <path
+                d="M7.00598 1.78809C7.00598 1.23389 7.45496 0.785156 8.00867 0.785156C8.56238 0.785156 9.01135 1.23389 9.01135 1.78809V20.1777C9.01135 20.7319 8.56238 21.1807 8.00867 21.1807C7.45496 21.1807 7.00598 20.7319 7.00598 20.1777V1.78809Z"
+                fill="white"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M13.0079 2.0083C13.0079 1.14941 13.9481 0.62207 14.6813 1.06982L20.4718 4.60547C20.6332 4.7041 20.7633 4.84033 20.8541 4.99902C20.9474 5.1626 20.9987 5.3501 20.9987 5.54443V20.1147C20.9987 20.7222 20.506 21.2148 19.8986 21.2148H14.108C13.5004 21.2148 13.0079 20.7222 13.0079 20.1147V2.0083ZM15.0079 3.61279V19.2148H18.9987V6.04932L15.0079 3.61279Z"
+                fill="white"
+              />
+            </svg>
+          </a>
+
+          <p class="m-0">Library</p>
+        </div>
+      </footer>
+      <!--  -->
+      <!--FOOTER  -->
+    </div>
+    <!--  -->
+    <!-- Desktop -->
+    <!--  -->
+    <div class="searchDesktop d-none d-md-flex">
+      <!-- left -->
+      <div style="height: 100vh">
+        <aside class="p-2 mx-3 pe-5 position-sticky top-0">
+          <header>
+            <nav class="d-flex align-items-center pb-3 text-truncate">
+              <ul class="nav d-flex flex-column gap-3">
+                <li class="nav-item pb-2">
+                  <a
+                    class="text-decoration-none text-white fs-3 d-flex align-items-center"
+                    href="#"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      class="bi bi-three-dots"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                      /></svg
+                  ></a>
+                </li>
+                <li class="nav-item active">
+                  <a
+                    href="#"
+                    class="text-decoration-none text-white d-flex align-items-center gap-3"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 25 25"
+                      width="22"
+                    >
+                      <path
+                        d="M23 9.99V22a2.006 2.006 0 0 1-2 2h-6v-8h-5v8H4a2.006 2.006 0 0 1-2-2V9.99a1.999 1.999 0 0 1 .79-1.59L12.5 1l9.71 7.4A1.999 1.999 0 0 1 23 9.99z"
+                        style="fill: currentColor"
+                      />
+                    </svg>
+                    <span class="fw-semibold">Home</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="search.html"
+                    class="text-decoration-none text-white d-flex align-items-center gap-3"
+                  >
+                    <svg
+                      data-name="Layer 1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      width="22"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M6.57 1A5.57 5.57 0 1 1 1 6.57 5.57 5.57 0 0 1 6.57 1m0-1a6.57 6.57 0 1 0 6.57 6.57A6.57 6.57 0 0 0 6.57 0z"
+                      />
+                      <path
+                        d="m10.031 11.447 1.415-1.414 4.193 4.193-1.415 1.414z"
+                      />
+                    </svg>
+                    <span class="fw-semibold">Search</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    href="#"
+                    class="text-decoration-none text-white d-flex align-items-center gap-3"
+                  >
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 21 22"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.96497 0.785156C1.41125 0.785156 0.96228 1.23389 0.96228 1.78809V20.1777C0.96228 20.7319 1.41125 21.1807 1.96497 21.1807C2.51868 21.1807 2.96765 20.7319 2.96765 20.1777V1.78809C2.96765 1.23389 2.51868 0.785156 1.96497 0.785156Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M7.00598 1.78809C7.00598 1.23389 7.45496 0.785156 8.00867 0.785156C8.56238 0.785156 9.01135 1.23389 9.01135 1.78809V20.1777C9.01135 20.7319 8.56238 21.1807 8.00867 21.1807C7.45496 21.1807 7.00598 20.7319 7.00598 20.1777V1.78809Z"
+                        fill="white"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M13.0079 2.0083C13.0079 1.14941 13.9481 0.62207 14.6813 1.06982L20.4718 4.60547C20.6332 4.7041 20.7633 4.84033 20.8541 4.99902C20.9474 5.1626 20.9987 5.3501 20.9987 5.54443V20.1147C20.9987 20.7222 20.506 21.2148 19.8986 21.2148H14.108C13.5004 21.2148 13.0079 20.7222 13.0079 20.1147V2.0083ZM15.0079 3.61279V19.2148H18.9987V6.04932L15.0079 3.61279Z"
+                        fill="white"
+                      />
+                    </svg>
+                    <span class="fw-semibold">La tua libreria</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <section class="d-flex align-items-center pt-4">
+            <ul class="list-unstyled d-flex flex-column gap-3 fw-semibold mb-0">
+              <li>
+                <a
+                  href="#"
+                  class="d-flex gap-3 text-decoration-none text-white"
+                >
+                  <span
+                    class="p-2 bg-custom-grey d-flex"
+                    style="border-radius: 3px"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 128 128"
+                      width="10"
+                      style="enable-background: new 0 0 128 128"
+                      xml:space="preserve"
+                    >
+                      <path
+                        style="fill: rgb(255, 255, 255)"
+                        d="M128 63.954c0 2.006-.797 3.821-2.136 5.127-1.308 1.337-3.125 2.133-5.166 2.133H71.302v49.356c0 4.012-3.284 7.292-7.302 7.292-2.009 0-3.827-.828-5.166-2.134-1.308-1.337-2.136-3.152-2.136-5.159V71.214H7.302c-4.05 0-7.302-3.248-7.302-7.26 0-2.006.797-3.853 2.136-5.159a7.279 7.279 0 0 1 5.166-2.134h49.395V7.306c0-4.012 3.284-7.26 7.302-7.26 2.009 0 3.827.828 5.166 2.133a7.238 7.238 0 0 1 2.136 5.127v49.356h49.395A7.276 7.276 0 0 1 128 63.954z"
+                      /></svg
+                  ></span>
+                  <p
+                    class="m-0"
+                    style="
+                      display: -webkit-box;
+                      -webkit-line-clamp: 1;
+                      -webkit-box-orient: vertical;
+                      overflow: hidden;
+                    "
+                  >
+                    Crea la tua playlist
+                  </p></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="d-flex gap-3 text-decoration-none text-white"
+                >
+                  <img
+                    src="/assets/imgs/likedSongs.png"
+                    width="27px"
+                    style="border-radius: 5px"
+                    alt="likedSongs"
+                  />
+                  <p
+                    class="m-0"
+                    style="
+                      display: -webkit-box;
+                      -webkit-line-clamp: 1;
+                      -webkit-box-orient: vertical;
+                      overflow: hidden;
+                    "
+                  >
+                    Brani che ti piacciono
+                  </p></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="d-flex gap-3 text-decoration-none text-white"
+                >
+                  <img
+                    src="/assets/imgs/savedEpisode.png"
+                    width="27px"
+                    style="border-radius: 5px"
+                    alt="likedSongs"
+                  />
+                  <p
+                    class="m-0"
+                    style="
+                      display: -webkit-box;
+                      -webkit-line-clamp: 1;
+                      -webkit-box-orient: vertical;
+                      overflow: hidden;
+                    "
+                  >
+                    I tuoi episodi
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </section>
+          <hr />
+          <section class="playlists">
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-decoration-none text-white"
+                  ><small>nomi playlist...</small></a
+                >
+              </li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+      <!-- end left -->
+      <!--  -->
+      <!-- middle -->
+      <!--  -->
+      <div
+        class="d-flex flex-grow-1 flex-column"
+        style="background: rgb(7, 7, 7)"
+      >
+        <div
+          class="p-3 d-flex justify-content-between position-sticky top-0 z-3"
+          style="background: rgb(19, 19, 19)"
+        >
+          <div class="d-flex align-items-center">
+            <a
+              href="#"
+              class="text-white mx-2 p-2 rounded-circle"
+              style="background-color: #232323"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-left"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="text-white mx-2 p-2 rounded-circle"
+              style="background-color: #232323"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chevron-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="d-flex" style="width: 40%">
+            <input
+              id=""
+              type="search"
+              placeholder="  Cosa vuoi ascoltare?"
+              class="bananaJoe search w-75 border-0 py-2 px-3 text-white rounded-5"
+              style="background-color: #1b1b1b; font-size: 1em"
+            />
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="mx-2">
+              <a href="" class="text-white"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-bell-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"
+                  /></svg
+              ></a>
+            </div>
+            <a href="" class="text-white mx-1"
+              ><div class="users">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-people"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+                  />
+                </svg></div
+            ></a>
+            <div class="dropdown">
+              <button
+                class="btn btn dropdown-toggle text-white"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-person-circle"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                  />
+                </svg>
+              </button>
+              <ul class="dropdown-menu bg-dark">
+                <li>
+                  <a class="dropdown-item text-white" href="#">Account</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">Profilo</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">Impostazioni</a>
+                </li>
+                <li><a class="dropdown-item text-white" href="#">Esci</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="cerca" class="mt-2"></div>
+        <div class="d-flex align-items-center m-2">
+          <a
+            href="#"
+            class="text-white text-decoration-none mx-1 bg-dark px-3 py-1 rounded-pill"
+            >Tutto</a
+          >
+          <a
+            href="#"
+            class="text-white text-decoration-none mx-1 bg-dark px-3 py-1 rounded-pill"
+            >Artisti</a
+          >
+          <a
+            href="#"
+            class="text-white text-decoration-none mx-1 bg-dark px-3 py-1 rounded-pill"
+            >Album</a
+          >
+        </div>
+
+        <div id="song" class="d-flex flex-wrap"></div>
+
+        <div class="p-3" id="recent">
+          <h2 class="py-2">Ricerche recenti</h2>
+          <div class="row g-3 mx-3">
+            <div class="col col-2">
+              <div class="bg-dark p-3 overflow-hidden">
+                <img
+                  src="/assets/imgs/main/image-13.jpg"
+                  alt=""
+                  width="100% "
+                  class=""
+                />
+                <p class="1em">Playlist/Album Name</p>
+                <p>Artist Name</p>
+              </div>
+            </div>
+            <div class="col col-2">
+              <div class="bg-dark p-3 overflow-hidden">
+                <img
+                  src="/assets/imgs/main/image-13.jpg"
+                  alt=""
+                  width="100% "
+                  class=""
+                />
+                <p class="1em">Playlist/Album Name</p>
+                <p>Artist Name</p>
+              </div>
+            </div>
+            <div class="col col-2">
+              <div class="bg-dark p-3 overflow-hidden">
+                <img
+                  src="/assets/imgs/main/image-13.jpg"
+                  alt=""
+                  width="100% "
+                  class=""
+                />
+                <p class="1em">Playlist/Album Name</p>
+                <p>Artist Name</p>
+              </div>
+            </div>
+            <div class="col col-2">
+              <div class="bg-dark p-3 overflow-hidden">
+                <img
+                  src="/assets/imgs/main/image-13.jpg"
+                  alt=""
+                  width="100% "
+                  class=""
+                />
+                <p class="1em">Playlist/Album Name</p>
+                <p>Artist Name</p>
+              </div>
+            </div>
+            <div class="col col-2">
+              <div class="bg-dark p-3 overflow-hidden">
+                <img
+                  src="/assets/imgs/main/image-13.jpg"
+                  alt=""
+                  width="100% "
+                  class=""
+                />
+                <p class="1em">Playlist/Album Name</p>
+                <p>Artist Name</p>
+              </div>
+            </div>
+            <div class="col col-2">
+              <div class="bg-dark p-3 overflow-hidden">
+                <img
+                  src="/assets/imgs/main/image-13.jpg"
+                  alt=""
+                  width="100% "
+                  class=""
+                />
+                <p class="1em">Playlist/Album Name</p>
+                <p>Artist Name</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-3" id="sfoglia2">
+          <h2 class="py-2">Sfoglia tutto</h2>
+          <div class="row g-4">
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #d29090"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">This is LoL</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-30.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: 158A08"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Pop</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/main/image-15.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #2a13c5"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Party Hits</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-27.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: rgb(212, 102, 13)"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Afro Hits</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/main/image-15.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #9ba811"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Discovery</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-1.jpeg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: mediumvioletred"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Latino</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-5.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: gray"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Rock</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-7.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: black"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Beast Mode</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-8.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: rgb(166, 142, 106)"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">All out 10's</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-12.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: red"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Metal</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-31.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: rgb(61, 61, 61)"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Rap Caviar</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-49.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #ff5c05e1"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Disect</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-2.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #7f0f9e"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">R n B</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-6.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #ec37e0"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Summer Vibes</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-13.jpeg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #8000f1"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Top Global</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-14.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #0b55a5"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Stress relief</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-17.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #0a5571"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Sleep</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-18.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #887d7d"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Peacefull Guitar</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-24.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #c0560b"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Hot Country</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-39.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #3a3737"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Radar</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-43.png"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #f166f4"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Pop 4 Kids</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-44.png"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #6c07aa"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Todays Top Hits</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-47.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col col-2 my-3" style="">
+              <a href="#" class="text-decoration-none text-white">
+                <div
+                  style="background-color: #0c3cbf"
+                  class="rounded overflow-hidden"
+                >
+                  <h4 class="p-3">Top Gaming</h4>
+                  <div class="image text-end">
+                    <img
+                      src="../assets/imgs/search/image-52.jpg"
+                      alt=""
+                      width="100"
+                      class="rounded"
+                      style="transform: rotate(30deg)"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <!--  -->
+      <!-- right   -->
+
+      <!-- end right -->
+    </div>
+    <!--  -->
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+  <script src="/Search/search.js"></script>
+</html>
