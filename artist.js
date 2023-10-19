@@ -4,6 +4,9 @@
 
 const createArtist = function(artistInfo){
     const artistHero = document.getElementById('hero')
+    artistHero.style.backgroundImage = `url("${artistInfo.picture_big}")`
+    artistHero.style.backgroundRepeat = 'no-repeat' 
+    artistHero.style.backgroundSize = 'cover'
     const navBar = document.createElement('div')
     navBar.classList.add('d-flex', 'flex-column', 'justify-content-between', 'h-100')
     navBar.innerHTML = `
@@ -156,12 +159,23 @@ const createArtist = function(artistInfo){
 }
 
 const getSongs = function(canzone){
+    let num = 0
     for (i=0; i<canzone.data.length; i++){
+        num++
         const durationSong = canzone.data[i].duration
         const durationInSeconds = parseInt(durationSong)
         const minute = Math.floor(durationInSeconds/60)
         const seconds = durationInSeconds % 60
         console.log(durationInSeconds)
+        // const getTime = function(){
+        //     const durationSong = canzone.data[i].duration
+        //     const durationInSeconds = parseInt(durationSong)
+        //     const minute = Math.floor(durationInSeconds/60)
+        //     const seconds = durationInSeconds % 60
+        //     if (minute < 10) { minute = "0" + minute; }
+        //     if (seconds < 10) { seconds = "0" + seconds; }
+        //     return minutes + ':' + seconds;
+        // }
         const songList = document.getElementById('song-list')
         const songDetails = document.createElement ('div')
         songDetails.classList.add('d-flex', 'align-items-center', 'mt-2')
@@ -169,13 +183,13 @@ const getSongs = function(canzone){
         <div
         class="col-1 pe-0 d-flex justify-content-end text-grey"
         >
-        ${parseInt(canzone.data[i].lenght + 1)}
+        ${num}
         </div>
         <div
             class="col-2 p-0 d-flex justify-content-center mx-1 chosen-song"
         >
             <img
-            src="${canzone.data[i].album.cover_small}"
+            src="${canzone.data[i].album.cover_medium}"
             alt=""
             class="w-75"
             />
@@ -183,10 +197,10 @@ const getSongs = function(canzone){
         <div class="col-4 p-0 text-truncate">
             ${canzone.data[i].title}
         </div>
-        <div class="col-2 text-grey text-truncate">
+        <div class="col-2 text-grey text-truncate d-flex justify-content-end">
         ${canzone.data[i].rank}
         </div>
-        <div class="col-2 text-grey">${minute}:${seconds}</div
+        <div class="col-2 text-grey d-flex justify-content-end">${minute}:${seconds}</div
         `
         songList.appendChild(songDetails) 
 
@@ -195,22 +209,22 @@ const getSongs = function(canzone){
         const songMobile = document.createElement('div')
         songMobile.classList.add('row', 'mt-2')
         songMobile.innerHTML = `
-        <div class="col d-flex align-items-center">
+        <div class="col d-flex align-items-center mt-3">
             <div class="col-1">
-            <p class="m-0 fw-bold">11</p>
+            <p class="m-0 fw-bold">${num}</p>
             </div>
             <div class="col-3 chosen-song">
             <img
-                src="${canzone.data[i].album.cover_small}"
+                src="${canzone.data[i].album.cover_medium}"
                 alt=""
                 class="w-100"
             />
             </div>
-            <div class="col ms-2">
+            <div class="col ms-2 text-truncate">
             <p class="text-truncate m-0 fs-6">${canzone.data[i].title}</p>
             <p class="text-truncate m-0 text-grey">${canzone.data[i].rank} visualizzazioni</p>
             </div>
-            <div class="col-1">
+            <div class="col-1 d-flex justify-content-end">
             <a href="#"
                 ><i class="bi bi-three-dots-vertical text-white"></i
             ></a>
@@ -226,7 +240,7 @@ const getSongs = function(canzone){
 
 
 const getArtist = function() {
-    fetch ('https://striveschool-api.herokuapp.com/api/deezer/artist/winter', {
+    fetch ('https://striveschool-api.herokuapp.com/api/deezer/artist/madonna', {
     })
     .then((res) => {
         if(res.ok){
@@ -239,7 +253,7 @@ const getArtist = function() {
         createArtist(artist)
         console.log(artist)
         const getTrackList = function (){
-            fetch ('https://striveschool-api.herokuapp.com/api/deezer/artist/65437/top?limit=50', {     
+            fetch ('https://striveschool-api.herokuapp.com/api/deezer/artist/290/top?limit=50', {     
             })
             .then((res) => {
                 if(res.ok){
