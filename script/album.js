@@ -1,3 +1,24 @@
+// Dichiarazione di una variabile per tenere traccia dello stato del cuore e colorarlo di verde
+let isFavorite = false;
+
+function handleFavoriteClick() {
+  const heartIcon = document.getElementById("heart-icon");
+  if (isFavorite) {
+    heartIcon.style.fill = "white";
+    isFavorite = false;
+  } else {
+    heartIcon.style.fill = "green";
+    isFavorite = true;
+    alert("Album aggiunto ai preferiti");
+  }
+}
+
+// Gestore di eventi al clic dell'icona a forma di cuore
+const heartIcon = document.getElementById("heart-icon");
+if (heartIcon) {
+  heartIcon.addEventListener("click", handleFavoriteClick);
+}
+
 // Funzione per convertire un valore RGB in un valore esadecimale
 const rgbToHex = function (r, g, b) {
   if (r > 255 || g > 255 || b > 255) {

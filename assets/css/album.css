@@ -1,5 +1,6 @@
 @charset "UTF-8";
-body{
+html,body{
+  min-height: 100% !important;
   background: linear-gradient(to top, #000000, #212121);
 
 }
@@ -37,6 +38,15 @@ li.active {
 }
 .btn-container i:hover{
   transform: scale(1.1);
+}
+.btn-container svg:hover{
+  transform: scale(1.1);
+}
+.lista:hover{
+  background-color: #80808026;
+    border: 1px solid #8080804a;
+    border-radius: 5px;
+    
 }
 
 @media (min-width: 1900px) {
