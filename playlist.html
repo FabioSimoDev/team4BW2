@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" class="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home</title>
+    <link rel="icon" type="images/x-icon" href="assets/imgs/head-logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="assets/css/playlist.css" />
+  </head>
+  <body class="bg-mobile">
+    <div
+      class="overlay-loading vw-100 vh-100 z-3 fixed-top bg-dark top-0 d-flex justify-content-center align-items-center"
+    >
+      <div
+        class="spinner-border text-success"
+        role="status"
+        style="width: 3rem; height: 3rem"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row position-relative flex-nowrap">
+        <div class="customcol-5 bg-black d-mobile-none">
+          <aside class="p-2">
+            <header>
+              <nav class="d-flex align-items-center pb-3 text-truncate">
+                <ul class="nav d-flex flex-column gap-3">
+                  <li class="nav-item pb-2">
+                    <a
+                      class="text-decoration-none text-white fs-3 d-flex align-items-center"
+                      href="#"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="currentColor"
+                        class="bi bi-three-dots"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                        /></svg
+                    ></a>
+                  </li>
+                  <li class="nav-item active">
+                    <a
+                      href="#"
+                      class="text-decoration-none text-white d-flex align-items-center gap-3"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 25 25"
+                        width="22"
+                      >
+                        <path
+                          d="M23 9.99V22a2.006 2.006 0 0 1-2 2h-6v-8h-5v8H4a2.006 2.006 0 0 1-2-2V9.99a1.999 1.999 0 0 1 .79-1.59L12.5 1l9.71 7.4A1.999 1.999 0 0 1 23 9.99z"
+                          style="fill: currentColor"
+                        />
+                      </svg>
+                      <span class="fw-semibold">Home</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="#"
+                      class="text-decoration-none text-white d-flex align-items-center gap-3"
+                    >
+                      <svg
+                        data-name="Layer 1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        width="22"
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M6.57 1A5.57 5.57 0 1 1 1 6.57 5.57 5.57 0 0 1 6.57 1m0-1a6.57 6.57 0 1 0 6.57 6.57A6.57 6.57 0 0 0 6.57 0z"
+                        />
+                        <path
+                          d="m10.031 11.447 1.415-1.414 4.193 4.193-1.415 1.414z"
+                        />
+                      </svg>
+                      <span class="fw-semibold">Search</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      href="#"
+                      class="text-decoration-none text-white d-flex align-items-center gap-3"
+                    >
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 21 22"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.96497 0.785156C1.41125 0.785156 0.96228 1.23389 0.96228 1.78809V20.1777C0.96228 20.7319 1.41125 21.1807 1.96497 21.1807C2.51868 21.1807 2.96765 20.7319 2.96765 20.1777V1.78809C2.96765 1.23389 2.51868 0.785156 1.96497 0.785156Z"
+                          fill="white"
+                        />
+                        <path
+                          d="M7.00598 1.78809C7.00598 1.23389 7.45496 0.785156 8.00867 0.785156C8.56238 0.785156 9.01135 1.23389 9.01135 1.78809V20.1777C9.01135 20.7319 8.56238 21.1807 8.00867 21.1807C7.45496 21.1807 7.00598 20.7319 7.00598 20.1777V1.78809Z"
+                          fill="white"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M13.0079 2.0083C13.0079 1.14941 13.9481 0.62207 14.6813 1.06982L20.4718 4.60547C20.6332 4.7041 20.7633 4.84033 20.8541 4.99902C20.9474 5.1626 20.9987 5.3501 20.9987 5.54443V20.1147C20.9987 20.7222 20.506 21.2148 19.8986 21.2148H14.108C13.5004 21.2148 13.0079 20.7222 13.0079 20.1147V2.0083ZM15.0079 3.61279V19.2148H18.9987V6.04932L15.0079 3.61279Z"
+                          fill="white"
+                        />
+                      </svg>
+                      <span class="fw-semibold">La tua libreria</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+            <section class="d-flex align-items-center pt-4">
+              <ul
+                class="list-unstyled d-flex flex-column gap-3 fw-semibold mb-0"
+              >
+                <li>
+                  <a
+                    href="#"
+                    class="d-flex gap-3 text-decoration-none text-white"
+                  >
+                    <span
+                      class="p-2 bg-custom-grey d-flex"
+                      style="border-radius: 3px"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 128 128"
+                        width="10"
+                        style="enable-background: new 0 0 128 128"
+                        xml:space="preserve"
+                      >
+                        <path
+                          style="fill: black"
+                          d="M128 63.954c0 2.006-.797 3.821-2.136 5.127-1.308 1.337-3.125 2.133-5.166 2.133H71.302v49.356c0 4.012-3.284 7.292-7.302 7.292-2.009 0-3.827-.828-5.166-2.134-1.308-1.337-2.136-3.152-2.136-5.159V71.214H7.302c-4.05 0-7.302-3.248-7.302-7.26 0-2.006.797-3.853 2.136-5.159a7.279 7.279 0 0 1 5.166-2.134h49.395V7.306c0-4.012 3.284-7.26 7.302-7.26 2.009 0 3.827.828 5.166 2.133a7.238 7.238 0 0 1 2.136 5.127v49.356h49.395A7.276 7.276 0 0 1 128 63.954z"
+                        /></svg
+                    ></span>
+                    <p
+                      class="m-0"
+                      style="
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                      "
+                    >
+                      Crea la tua playlist
+                    </p></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="d-flex gap-3 text-decoration-none text-white"
+                  >
+                    <img
+                      src="assets/imgs/likedSongs.png"
+                      width="27px"
+                      style="border-radius: 5px"
+                      alt="likedSongs"
+                    />
+                    <p
+                      class="m-0"
+                      style="
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                      "
+                    >
+                      Brani che ti piacciono
+                    </p></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="d-flex gap-3 text-decoration-none text-white"
+                  >
+                    <img
+                      src="assets/imgs/savedEpisode.png"
+                      width="27px"
+                      style="border-radius: 5px"
+                      alt="likedSongs"
+                    />
+                    <p
+                      class="m-0"
+                      style="
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                      "
+                    >
+                      I tuoi episodi
+                    </p>
+                  </a>
+                </li>
+              </ul>
+            </section>
+            <hr />
+            <section class="playlists">
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#" class="text-decoration-none text-white"
+                    ><small>nomi playlist...</small></a
+                  >
+                </li>
+              </ul>
+            </section>
+          </aside>
+        </div>
+        <div class="customcol-md-15 customcol-24 py-3 px-lg-5 px-3">
+          <nav class="d-md-flex justify-content-between pb-3 d-mobile-none">
+            <div class="arrows d-flex gap-3">
+              <div
+                class="nav-arrow-left bg-secondary-subtle d-flex p-2 justify-content-center align-items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-chevron-left"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="nav-arrow-right bg-secondary-subtle d-flex p-2 align-items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-chevron-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-sm bg-black opacity-75 dropdown-toggle rounded-pill d-flex align-items-center gap-1"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="assets/imgs/main/image-1.jpg"
+                  width="30px"
+                  alt="PP"
+                  class="rounded-pill"
+                />
+                Lidia Nautilus ...
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">....</a></li>
+                <li><a class="dropdown-item" href="#">...</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">...</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <section class="hero d-mobile-none">
+            <div
+              class="new-song-hero-container w-100 d-flex gap-3 ps-2 py-4 align-items-center"
+            >
+              <div class="d-flex hero-content">
+                <div
+                  class="new-song-hero-img mx-2 d-flex align-items-center justify-content-center"
+                >
+                  <i
+                    class="bi bi-music-note-beamed"
+                    style="font-size: 3vw; color: gray"
+                  ></i>
+                </div>
+                <div class="col d-flex flex-column justify-content-end ps-3">
+                  <div class="new-song-hero-header pb-4">
+                    <p class="fw-semibold">ALBUM</p>
+                  </div>
+                  <h2
+                    class="new-song-hero-title fw-bold pe-2 pb-5 mb-3"
+                    role="button"
+                    contenteditable="true"
+                    data-maxlength="20"
+                  >
+                    La mia playlist n.1
+                  </h2>
+                  <p id="new-song-hero-description" class="text-truncate mb-0">
+                    <img
+                      src="assets/imgs/main/image-1.jpg"
+                      width="30px"
+                      alt="PP"
+                      class="rounded-pill"
+                    />
+                    nome_utente
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- MAIN -->
+          <main>
+            <ul id="ul-playlist-container"></ul>
+          </main>
+        </div>
+        <div
+          class="customcol-4 right-column-header fixed-right bg-black py-2 px-0 d-mobile-none flex-grow-1"
+        >
+          <div
+            class="d-flex justify-content-between flex-column right-column-container"
+          >
+            <div
+              class="right-column-action-buttons d-flex justify-content-end pb-2"
+            >
+              <button
+                class="btn btn-outline-secondary rounded-0 py-0 border-0 fs-4"
+              >
+                -
+              </button>
+              <button class="btn btn-outline-secondary rounded-0 border-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  class="bi bi-window-stack"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4.5 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM6 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"
+                  />
+                  <path
+                    d="M12 1a2 2 0 0 1 2 2 2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10ZM2 12V5a2 2 0 0 1 2-2h9a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1Zm1-4v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8H3Zm12-1V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2h12Z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="btn btn-outline-secondary rounded-0 py-0 border-0 fs-5 font-monospace"
+              >
+                x
+              </button>
+            </div>
+            <div
+              class="right-column-header d-flex justify-content-between align-items-center px-3"
+            >
+              <div class="right-column-header-text">
+                <small class="fw-bold">Attività amici</small>
+              </div>
+              <div class="right-column-header-buttons">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-person-add"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  />
+                  <path
+                    d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"
+                  />
+                </svg>
+                <small class="font-monospace">X</small>
+              </div>
+            </div>
+            <div
+              class="right-column-body pt-4 d-flex flex-column container-fluid gap-3"
+            >
+              <div class="friend-activity">
+                <div class="row">
+                  <div class="d-flex align-items-center">
+                    <div class="">
+                      <img
+                        src="assets/imgs/main/image-14.jpg"
+                        alt="friendPP"
+                        class="img-fluid rounded-circle"
+                        width="35px"
+                      />
+                    </div>
+                    <div
+                      class="customcol-19 ps-3 friend-activity-text text-truncate d-flex flex-column"
+                    >
+                      <p class="m-0 text-truncate fw-bold">Charlie Hookmam</p>
+                      <small class="text-truncate opacity-75"
+                        >In Camera • Yumi Zouma</small
+                      >
+                      <div
+                        class="friend-listening-to d-flex align-items-center gap-1 opacity-75"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="12"
+                          height="12"
+                          fill="currentColor"
+                          class="bi bi-bullseye"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                          <path
+                            d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
+                          />
+                          <path
+                            d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                          />
+                          <path
+                            d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                          />
+                        </svg>
+                        <small>EP III</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="friend-activity">
+                <div class="row">
+                  <div class="d-flex align-items-center">
+                    <div class="">
+                      <img
+                        src="assets/imgs/main/image-15.jpg"
+                        alt="friendPP"
+                        class="img-fluid rounded-circle"
+                        width="35px"
+                      />
+                    </div>
+                    <div
+                      class="customcol-19 ps-3 friend-activity-text text-truncate d-flex flex-column"
+                    >
+                      <p class="m-0 text-truncate fw-bold">lightdark02</p>
+                      <small class="text-truncate opacity-75"
+                        >Aimed to kill • Yumi Zouma</small
+                      >
+                      <div
+                        class="friend-listening-to d-flex align-items-center gap-1 opacity-75"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="12"
+                          height="12"
+                          fill="currentColor"
+                          class="bi bi-bullseye"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                          <path
+                            d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
+                          />
+                          <path
+                            d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                          />
+                          <path
+                            d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                          />
+                        </svg>
+                        <small>Aimed To Kill</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="friend-activity">
+                <div class="row">
+                  <div class="d-flex align-items-center">
+                    <div class="">
+                      <img
+                        src="assets/imgs/main/image-16.jpg"
+                        alt="friendPP"
+                        class="img-fluid rounded-circle"
+                        width="35px"
+                      />
+                    </div>
+                    <div
+                      class="customcol-19 ps-3 friend-activity-text text-truncate d-flex flex-column"
+                    >
+                      <p class="m-0 text-truncate fw-bold">Valeria Traverso</p>
+                      <small class="text-truncate opacity-75"
+                        >New Kings • Sleeping Wolf</small
+                      >
+                      <div
+                        class="friend-listening-to d-flex align-items-center gap-1 opacity-75"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="12"
+                          height="12"
+                          fill="currentColor"
+                          class="bi bi-bullseye"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                          />
+                          <path
+                            d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
+                          />
+                          <path
+                            d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+                          />
+                          <path
+                            d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                          />
+                        </svg>
+                        <small>Twint Badass mood</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="z-2 fixed-bottom w-100 bottom-0 px-md-3 py-3 bg-dark border-top footer"
+    >
+      <div
+        class="row flex-nowrap d-mobile-none align-items-center"
+        disabled="true"
+        id="desktop-playBar"
+      >
+        <div class="customcol-7">
+          <div class="d-flex align-items-center gap-3">
+            <div class="footer-left-img">
+              <img
+                src="assets/imgs/main/image-18.jpg"
+                alt="song-image"
+                class="img-fluid rounded"
+                width="60px"
+                id="player-img"
+              />
+            </div>
+            <div class="footer-left-text d-flex flex-column text-truncate">
+              <p class="m-0" id="current-track-title">Fat Funny Friend</p>
+              <small class="opacity-75" id="current-track-author"
+                >Maddie Zahm</small
+              >
+            </div>
+            <div
+              class="footer-left-like-icon d-flex flex-column ps-2"
+              onclick="likeClick()"
+            >
+              <img
+                src="assets/imgs/Heart Icon.svg"
+                alt="heart icon"
+                class="opacity-75"
+                width="22px"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="customcol-10">
+          <div class="d-flex flex-column gap-2">
+            <div
+              class="footer-play-buttons d-flex gap-3 align-items-center justify-content-center"
+            >
+              <i class="bi bi-shuffle"></i>
+              <i class="bi bi-skip-backward-fill"></i>
+              <i
+                id="player-play-pause-btn"
+                role="button"
+                onclick="playOrStopHandler()"
+                class="p-2 d-flex rounded-circle bg-light bi bi-play-fill text-black"
+              ></i>
+              <i class="bi bi-skip-forward-fill"></i>
+              <i class="bi bi-repeat"></i>
+            </div>
+            <div class="footer-play-bar d-flex align-items-center gap-2">
+              <span id="track-current-second">0:58</span>
+              <div
+                class="progress"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow="0"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="height: 5px; width: 100%"
+              >
+                <div
+                  id="current-track-progress-bar"
+                  class="progress-bar bg-white"
+                  style="width: 0%; transition: width 0.1s linear"
+                ></div>
+              </div>
+              <span id="current-track-duration">3:20</span>
+            </div>
+          </div>
+        </div>
+        <div class="customcol-7">
+          <div
+            class="d-flex justify-content-end align-items-center gap-2 h-100"
+          >
+            <i class="bi bi-mic"></i>
+            <img src="assets/imgs/Queue Icon.svg" alt="queue" />
+            <img src="assets/imgs/Device Icon.svg" alt="device" />
+            <i class="bi bi-volume-up"></i>
+            <div
+              class="progress"
+              role="progressbar"
+              aria-label="Basic example"
+              aria-valuenow="30"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="height: 5px; width: 20%"
+            >
+              <div class="progress-bar bg-white" style="width: 100%"></div>
+            </div>
+            <i class="bi bi-arrows-angle-expand"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-3 d-md-none px-4">
+        <div class="home-footer d-flex flex-column align-items-center">
+          <img src="assets/imgs/homepage.svg" alt="" width="22px" />
+          <small>Home</small>
+        </div>
+        <div class="search-footer d-flex flex-column align-items-center">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            width="22"
+            fill="currentColor"
+          >
+            <path
+              d="M6.57 1A5.57 5.57 0 1 1 1 6.57 5.57 5.57 0 0 1 6.57 1m0-1a6.57 6.57 0 1 0 6.57 6.57A6.57 6.57 0 0 0 6.57 0z"
+            ></path>
+            <path
+              d="m10.031 11.447 1.415-1.414 4.193 4.193-1.415 1.414z"
+            ></path>
+          </svg>
+          <small>Cerca</small>
+        </div>
+        <div class="library-footer d-flex flex-column align-items-center">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 21 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.96497 0.785156C1.41125 0.785156 0.96228 1.23389 0.96228 1.78809V20.1777C0.96228 20.7319 1.41125 21.1807 1.96497 21.1807C2.51868 21.1807 2.96765 20.7319 2.96765 20.1777V1.78809C2.96765 1.23389 2.51868 0.785156 1.96497 0.785156Z"
+              fill="white"
+            ></path>
+            <path
+              d="M7.00598 1.78809C7.00598 1.23389 7.45496 0.785156 8.00867 0.785156C8.56238 0.785156 9.01135 1.23389 9.01135 1.78809V20.1777C9.01135 20.7319 8.56238 21.1807 8.00867 21.1807C7.45496 21.1807 7.00598 20.7319 7.00598 20.1777V1.78809Z"
+              fill="white"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.0079 2.0083C13.0079 1.14941 13.9481 0.62207 14.6813 1.06982L20.4718 4.60547C20.6332 4.7041 20.7633 4.84033 20.8541 4.99902C20.9474 5.1626 20.9987 5.3501 20.9987 5.54443V20.1147C20.9987 20.7222 20.506 21.2148 19.8986 21.2148H14.108C13.5004 21.2148 13.0079 20.7222 13.0079 20.1147V2.0083ZM15.0079 3.61279V19.2148H18.9987V6.04932L15.0079 3.61279Z"
+              fill="white"
+            ></path>
+          </svg>
+          <small>La tua libreria</small>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script/playlist.js"></script>
+    <!-- <script src="script/index.js"></script> -->
+  </body>
+</html>

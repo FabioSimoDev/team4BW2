@@ -414,6 +414,8 @@ const getAverageColor = function (img) {
   };
 };
 
+const createPlayList = function () {};
+
 const recommendFill = function (songs) {
   if (recommendedCards) {
     const artist = mostLikedAlgorithm();
