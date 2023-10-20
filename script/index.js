@@ -247,10 +247,28 @@ const showPlayBar = function (playBar) {
 
 const fillPlaylistItems = function () {
   Array.from(playListItems).forEach((item, index) => {
-    const img = item.querySelectorAll("img");
-    Array.from(img).forEach((img, i) => {
-      img.src = `../assets/imgs/main/image-${index + 1 + i}.jpg`;
-    });
+    if (playlists.length) {
+      const img = item.querySelectorAll("img");
+      Array.from(img).forEach((img, i) => {
+        img.src = `../assets/imgs/main/image-${index + 1 + i}.jpg`;
+      });
+      const paragraph = item.querySelectorAll("p");
+      Array.from(paragraph).forEach((p) => {
+        if (playlists[index]) {
+          item.addEventListener("click", () => {
+            const URL = `playlist.html?playlistId=${playlists[index].id}`;
+            location.assign(URL);
+          });
+          p.textContent = `${playlists[index].name}`;
+          console.log(playlists, playlists[index]);
+        } else {
+          item.classList.add("d-none");
+        }
+      });
+    } else {
+      item.classList.add("d-none");
+      // item.previousSibling.classList.add("d-none");
+    }
   });
 };
 
@@ -280,7 +298,8 @@ const fillPage = function (songsData) {
   const randomTrack = Math.floor(Math.random() * songsData.data.length);
   const track = songsData.data[randomTrack];
   currentlyPlaying = track;
-  getAverageColor(heroImg);
+  console.log(getAverageColor(heroImg));
+  console.log(heroImg);
   heroImg.src = track.album.cover_big;
   console.log(track.album.cover_big);
   heroSongTitle.textContent = track.title_short;
@@ -386,8 +405,6 @@ const getGeneralData = async function () {
 };
 
 const getAverageColor = function (img) {
-  img.src = img;
-
   img.onload = function () {
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
@@ -422,11 +439,17 @@ const getAverageColor = function (img) {
 
 const loadPlaylistsNames = function () {
   if (playlists.length) {
-    playlists.forEach((playlist) => {
+    playlists.forEach((playlist, i) => {
       playlistNamesContainer.innerHTML += `
                                             <a href="#" class="text-decoration-none text-white"
                                               ><small>${playlist.name}</small></a
                                             >`;
+      playlistNamesContainer
+        .querySelectorAll("a")
+        [i].addEventListener("click", () => {
+          const URL = `playlist.html?playlistId=${playlist.id}`;
+          location.assign(URL);
+        });
     });
   } else {
     playlistNamesContainer.innerHTML = `

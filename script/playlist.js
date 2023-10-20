@@ -2,6 +2,14 @@ const SEARCH_URL =
   "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 let QUERY;
 
+const addressBarItem = new URLSearchParams(window.location.search);
+const playlistToOpen = addressBarItem.get("playlistId") || null;
+console.log(playlistToOpen);
+
+const playlistNamesContainer = document.getElementById(
+  "playlists-name-container"
+);
+
 const overlayLoading = document.querySelector(".overlay-loading");
 const editablePlaylistName = document.querySelector(".new-song-hero-title");
 const maxLength = parseInt(editablePlaylistName.getAttribute("data-maxlength"));
@@ -54,7 +62,7 @@ const removeOverlay = function () {
 
 removeOverlay();
 
-const createPlaylist = function (name) {
+const createPlaylist = function (name, songData) {
   let playlistToUpdate = null;
 
   for (let i = 0; i < localStoragePlaylists.length; i++) {
@@ -67,13 +75,22 @@ const createPlaylist = function (name) {
 
   if (playlistToUpdate) {
     playlistToUpdate.name = name;
+    if (songData) {
+      playlistToUpdate.songs.push(songData);
+    }
+    console.log(playlistToUpdate);
   } else {
     const playlist = {
       name: name,
-      id: localStoragePlaylists.length
+      id: localStoragePlaylists.length,
+      songs: []
     };
 
     localStoragePlaylists.push(playlist);
+
+    if (songData) {
+      playlist["songs"].push(songData);
+    }
 
     currentPlaylistId = playlist.id;
   }
@@ -81,22 +98,118 @@ const createPlaylist = function (name) {
   localStorage.setItem("playlists", JSON.stringify(localStoragePlaylists));
 };
 
-editablePlaylistName.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    createPlaylist(this.textContent.trim());
+const loadPlaylistsNames = function () {
+  if (localStoragePlaylists.length) {
+    localStoragePlaylists.forEach((playlist, i) => {
+      playlistNamesContainer.innerHTML += `
+                                            <a href="#" class="text-decoration-none text-white"
+                                              ><small>${playlist.name}</small></a
+                                            >`;
+      playlistNamesContainer
+        .querySelectorAll("a")
+        [i].addEventListener("click", () => {
+          const URL = `playlist.html?playlistId=${playlist.id}`;
+          location.assign(URL);
+        });
+    });
+  } else {
+    playlistNamesContainer.innerHTML = `
+                                        <a href="#" class="text-decoration-none text-white"
+                                          ><small>nomi playlist...</small></a
+                                        >`;
   }
-});
+};
 
-editablePlaylistName.addEventListener("keydown", function (event) {
-  let text = this.textContent.trim();
-  // let cursorPosition = getCaretPosition(this);
+loadPlaylistsNames();
 
-  if (text.length > maxLength && !(event.keyCode === 8)) {
-    event.preventDefault();
+const addSong = function (
+  title,
+  cover,
+  albumTitle,
+  artistName,
+  preview,
+  duration,
+  songData
+) {
+  const minutes = Math.floor(duration / 60);
+  let seconds = (duration % 60).toString();
+  if (seconds.length === 1) {
+    seconds = "0" + seconds;
   }
-});
+  let li = document.createElement("li");
+  li.innerHTML = `
+              <div class="lista d-flex justify-content-between mx-4 ">
+                <div class="col-5 mb-2 mt-2 d-flex gap-3">
+                  <div class="li-img">
+                    <img src="${cover}" width="45px" />
+                  </div>
+                  <div class="song-name-artist">
+                    <h5 class="mb-0 text-white text-truncate" id="song-title">${title}</h5>
+                    <a href="artist.html?artistId=13 " class="text-decoration-none text-white fs-ligth">${artistName}</a>
+                  </div>
+                </div>
+                <p class="col offset-1 text-truncate opacity-75 fs-6"><small>${albumTitle}</small></p>
+                <div class="col-2 text-end">
+                  <p class="text-white">${minutes}:${seconds}</p>
+                </div>
+              </div>`;
+  li.addEventListener("click", () => {
+    currentlyPlaying = songData;
+    console.log("SONGDATAAAAA: ", currentlyPlaying);
+    play(songData);
+    checkIfLiked();
+    showPlayBar();
+  });
+  playlistSongs.appendChild(li);
+};
 
+const openPlaylist = function () {
+  if (playlistToOpen) {
+    console.log(parseInt(playlistToOpen), localStoragePlaylists.length);
+    editablePlaylistName.removeAttribute("contenteditable");
+    for (let i = 0; i < localStoragePlaylists.length; i++) {
+      if (localStoragePlaylists[i].id === parseInt(playlistToOpen)) {
+        playlistToUpdate = localStoragePlaylists[i];
+        console.warn("esiste");
+        editablePlaylistName.textContent = localStoragePlaylists[i].name;
+        if (localStoragePlaylists[i].songs.length) {
+          localStoragePlaylists[i].songs.forEach((song) => {
+            addSong(
+              song.title,
+              song.album.cover_small,
+              song.album.title,
+              song.artist.name,
+              song.preview,
+              song.duration,
+              song
+            );
+          });
+        }
+        break;
+      }
+    }
+  }
+};
+
+openPlaylist();
+
+if (!playlistToOpen) {
+  editablePlaylistName.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      createPlaylist(this.textContent.trim());
+    }
+  });
+
+  editablePlaylistName.addEventListener("keydown", function (event) {
+    let text = this.textContent.trim();
+    // let cursorPosition = getCaretPosition(this);
+
+    if (text.length > maxLength && !(event.keyCode === 8)) {
+      event.preventDefault();
+    }
+  });
+}
 searchSongsInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     QUERY = searchSongsInput.value;
@@ -353,51 +466,13 @@ const setLikeState = function (element, state) {
   }
 };
 
-const addSong = function (
-  title,
-  cover,
-  albumTitle,
-  artistName,
-  preview,
-  duration,
-  songData
-) {
-  const minutes = Math.floor(duration / 60);
-  const seconds = duration % 60;
-  let li = document.createElement("li");
-  li.innerHTML = `
-              <div class="lista d-flex justify-content-between mx-4 ">
-                <div class="col-5 mb-2 d-flex gap-3">
-                  <div class="li-img">
-                    <img src="${cover}" width="45px" />
-                  </div>
-                  <div class="song-name-artist">
-                    <h5 class="mb-0 text-white text-truncate">${title}</h5>
-                    <a href="artist.html?artistId=13 " class="text-decoration-none text-white fs-ligth">${artistName}</a>
-                  </div>
-                </div>
-                <p class="col offset-1 text-truncate opacity-75 fs-6"><small>${albumTitle}</small></p>
-                <div class="col-2 text-end">
-                  <p class="text-white">${minutes}:${seconds}</p>
-                </div>
-              </div>`;
-  li.addEventListener("click", () => {
-    currentlyPlaying = songData;
-    console.log("SONGDATAAAAA: ", currentlyPlaying);
-    play(songData);
-    checkIfLiked();
-    showPlayBar();
-  });
-  playlistSongs.appendChild(li);
-};
-
 const showResults = function (songs) {
   let li;
   songs.data.forEach((song) => {
     li = document.createElement("li");
     li.innerHTML = `
                     <div class="lista d-flex justify-content-between mx-4 ">
-                      <div class="col-5 mb-2 d-flex gap-3">
+                      <div class="col-5 mb-2 mt-2 d-flex gap-3">
                         <div class="li-img">
                           <img src="${song.album.cover_small}" width="45px" />
                         </div>
@@ -423,6 +498,7 @@ const showResults = function (songs) {
         song.duration,
         song
       );
+      createPlaylist(editablePlaylistName.textContent, song);
       addSongBtn.parentElement.parentElement.parentElement.remove(); //elimino la li
     });
   });
