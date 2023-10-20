@@ -1,0 +1,227 @@
+$green: #1ed760;
+$gray-900: #212121;
+$mobile-background: #121212;
+
+@import '../bootstrap-5.3.2/scss/functions';
+@import '../bootstrap-5.3.2/scss/variables';
+
+@import 'anim';
+
+.fade-out{
+    animation: fadeOutZoomIn 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+[disabled=true]{
+    display: none !important;
+}
+
+[disabled=false]{
+    display: flex !important;
+}
+
+
+
+$grey-1000: #b2b2b2;
+$bg-custom-grey: $grey-1000;
+
+
+
+.bg-custom-grey{
+    background-color: $bg-custom-grey !important;
+}
+
+li{
+    opacity: 0.75;
+    &.active{
+        opacity: 1;
+    }
+}
+
+.nav-arrow-left, .nav-arrow-right{
+    border-radius: 50%;
+}
+
+.dropdown-toggle{
+    padding-left: 0 !important;
+    padding-block: 0 !important;
+    border: 1px solid transparent !important;
+}
+
+.new-song-hero-container{  
+    background: linear-gradient(to top, black 0%, transparent 45%), linear-gradient(70deg, black 0%, rgba(33,33,33,1) 65%);
+}
+
+.new-song-hero-buttons button{
+    flex-grow: 0.03;
+    padding-block: 0.8rem !important;
+}
+
+$hero-item-height: 300px;
+$hero-title-size-responsive: 4vw;
+$hero-texts-size-responsive: 1vw;
+
+@import '../bootstrap-5.3.2/scss/mixins';
+
+@media (min-width:1900px){
+    .new-song-hero-title{
+        font-size: 4.5rem;
+    }
+}
+@media (max-width:1899px){
+    .new-song-hero-title{
+        font-size: $hero-title-size-responsive - 0.5;
+    }
+}
+@include media-breakpoint-down(xl){
+    .new-song-hero-img{
+        width: $hero-item-height - 100;
+        height: $hero-item-height - 100;
+    }
+    .new-song-hero-title{
+        font-size: $hero-title-size-responsive - 1;
+    }
+    .new-song-hero-buttons button{
+        font-size: 0.8rem !important;
+    }
+    .hero p{
+        font-size: $hero-texts-size-responsive;
+    }
+    .friend-activity-text{
+        p{
+            font-size: 1vw !important;
+        }
+        small{
+            font-size: 1vw !important;
+        }
+    }
+    .right-column-header-text{
+        small{
+            font-size: 1vw;
+        }
+    }
+}
+@include media-breakpoint-down(lg){
+    .new-song-hero-img{
+        width: $hero-item-height - 110;
+        height: $hero-item-height - 110;
+    }
+    .new-song-hero-buttons button{
+        font-size: 0.7rem !important;
+    }
+    .hero p{
+        font-size: $hero-texts-size-responsive + 0.3;
+        margin-bottom: 0.5rem;
+    }
+}
+@media (max-width: 800px){
+    .hero p{
+        font-size: 0.7rem;
+    }
+    .friend-activity-text{
+        p{
+            font-size: 0.7rem !important;
+        }
+        small{
+            font-size: 0.7rem !important;
+        }
+    }
+    .right-column-header-text{
+        small{
+            font-size: 0.7rem;
+        }
+    }
+}
+
+$new-md-breakpoint: 800px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: $new-md-breakpoint,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+
+
+@media (max-width: $new-md-breakpoint){
+    .d-mobile-none{
+        display: none !important;
+    }
+    .d-mobile-flex{
+        display: flex !important;
+    }
+    .d-mobile-block{
+        display: block !important;
+    }
+    .bg-mobile{
+        background-color: $mobile-background !important;
+    }
+    footer{
+        &.footer{
+            // width: 95% !important;
+            // margin: auto;
+            // position: fixed !important;
+            // bottom: 20% !important;
+            background: linear-gradient(0deg, rgba(0,0,0,1) 35%, rgba(18,18,18,0) 100%) !important;
+            border: 0px !important;
+        }
+    }
+}
+@media (min-width: $new-md-breakpoint){
+    .d-tablet-block{
+        display: block !important;
+    }
+    .d-tablet-flex{
+        display: flex !important;
+    }
+    .card.border-0{
+        border: 1px solid black !important;
+    }
+}
+
+
+
+
+
+
+@each $breakpoint, $value in $grid-breakpoints {
+  @for $i from 1 through 24 {
+    $percentage: percentage($i / 24);
+    $maxWidth: percentage($i / 24);
+
+    .customcol-#{$i} {
+      flex: 0 0 $percentage !important;
+      max-width: $maxWidth !important;
+
+      @media screen and (min-width: $value) {
+        &.#{$breakpoint} {
+          flex: 0 0 $percentage;
+          max-width: $maxWidth;
+        }
+      }
+    }
+  }
+}
+@each $breakpoint, $value in $grid-breakpoints {
+  @for $i from 1 through 24 {
+    $percentage: percentage($i / 24);
+    $maxWidth: percentage($i / 24);
+
+    @media screen and (min-width: $value) {
+          .customcol-#{$breakpoint}-#{$i} {
+          flex: 0 0 $percentage !important;
+          max-width: $maxWidth !important;
+        }
+    }
+  }
+}
+
+  
+
+  @import '../bootstrap-5.3.2/scss/bootstrap.scss';
+
+
+
