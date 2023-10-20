@@ -11,6 +11,7 @@ searchInput.addEventListener("input", (e) => {
 function ricerca2(e) {
   const value = e.target.value.toLowerCase();
   const queryApi = value;
+
   if (queryApi.length >= 1) {
     nascondiSfogliaMobile.style.display = "none";
     nascondiFooter.style.display = "none";
@@ -261,3 +262,20 @@ fetch(cercaApi + queryApi)
   .catch((err) => {
     console.log(err);
   });
+
+function goBack() {
+  window.history.back();
+}
+function goForward() {
+  window.history.forward;
+}
+
+const playImg = document.getElementById("playlistImg");
+const playState = document.querySelector(".publicOprivate");
+const playTitle = document.querySelector(".playlistTitle");
+
+function playlistLol() {
+  const source = document.querySelector(".image");
+  console.log(source.img.src);
+  playImg = source.img.src;
+}
