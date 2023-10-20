@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accedi-Spotify</title>
+
+    <link rel="icon" type="images/x-icon" href="/assets/imgs/spotify (1).svg" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="LoginPage.css" />
+  </head>
+  <body
+    style="
+      background-color: #191919;
+
+      font-family: Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      width: 100%;
+    "
+  >
+    <header class="bg-black pt-1 border border-black">
+      <div class="d-flex ms-5 mt-sm-5 mb-sm-5 mt-md-3">
+        <i
+          class="bi bi-spotify me-xxl-4 text-white fs-3 me-2"
+          style="font-size: 50vw"
+        ></i>
+        <p class="spot fs-6 mt-2 text-white">Spotify</p>
+      </div>
+    </header>
+
+    <div class="col col-lg-2"></div>
+    <div
+      class="col col-lg-15 d-lg-flex align-items-lg-center justify-content-lg-center"
+    >
+      <main
+        class="col-lg-8 col-xl-7 d-lg-flex align-items-lg-center justify-content-lg-center bg-black border border-black mx-md-5 mt-md-5 pt-md-5 rounded-top"
+      >
+        <div
+          class="container d-md-flex flex-md-column justify-content-md-center bg-md-black"
+        >
+          <div class="row">
+            <div class="col col-1"></div>
+            <div class="col col-10">
+              <h1
+                id="titolo"
+                class="ms-3 ms-md-5 mb-5 col-lg-11 ms-lg-4 ms-xxl-5 d-flex justify-content-start d-md-flex justify-content-md-center text-white fw-bolder"
+              >
+                Accedi a Spotify
+              </h1>
+              <div
+                class="d-flex flex-column align-items-center justify-content-center"
+              >
+                <button
+                  type="button"
+                  class="cont btn btn-outline-secondary mt-xxl-3 mt-xl-5 fs-6 rounded-pill p-3 p-md-3 p-lg-3 p-xl-3 col-md-7 col-lg-8 col-xl-7 col-xxl-7 col-12 mb-2 fw-bold text-white"
+                >
+                  <img
+                    src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg"
+                    alt="logo"
+                    class="bi me-xxl-5 me-4"
+                  />
+
+                  Continua con Google
+                </button>
+                <button
+                  type="button"
+                  class="cont btn btn-outline-secondary rounded-pill fs-6 p-3 p-md-3 p-lg-3 p-xl-3 col-md-7 col-lg-8 col-xl-7 col-xxl-7 col-12 mb-2 fw-bold text-white"
+                >
+                  <i
+                    class="bi bi-facebook me-xxl-5 me-lg-3 text-primary me-4"
+                  ></i>
+                  Continua con Facebook
+                </button>
+                <button
+                  type="button"
+                  class="cont btn btn-outline-secondary rounded-pill fs-6 p-3 p-md-3 p-lg-3 p-xl-3 col-md-7 col-lg-8 col-xl-7 col-xxl-7 col-12 mb-2 fw-bold text-white"
+                >
+                  <i class="bi bi-apple me-xxl-5 me-4"></i>
+                  Continua con Apple
+                </button>
+              </div>
+              <hr class="text-white my-5" />
+
+              <form
+                id="form"
+                class="d-md-flex flex-md-column align-items-md-center justify-content-md-center"
+              >
+                <div
+                  class="mb-3 col-md-6 col-lg-8 col-xl-7 col-xxl-5 justify-content-mg-center align-items-lg-center"
+                >
+                  <label
+                    for="exampleInputEmail1"
+                    class="form-label text-white opacity-100 fw-bold"
+                    >Indirizzo e-mail o nome utente</label
+                  >
+                  <input
+                    type="email"
+                    style="background-color: #191919"
+                    class="form-control col-md-7 rounded-0 p-2 fw-bold"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Indirizzo e-mail o nome utente"
+                    required
+                  />
+                </div>
+                <div class="mb-3 col-md-6 col-lg-8 col-xl-7 col-xxl-5">
+                  <label
+                    for="exampleInputPassword1"
+                    class="form-label text-white fw-bold d-flex align-items-center justify-content-between"
+                    >Password<button
+                      id="pass"
+                      type="button"
+                      class="btn border border-0"
+                      data-bs-toggle="button"
+                      onclick="myFunction()"
+                    >
+                      <i class="bi bi-eye-slash text-white fs-4"></i>
+                    </button>
+                  </label>
+                  <input
+                    type="password"
+                    style="background-color: #191919"
+                    class="form-control col-md-7 rounded-0 p-2 fw-bold"
+                    placeholder="Password "
+                    id="exampleInputPassword1"
+                    required
+                  />
+                </div>
+
+                <div
+                  class="ric form-check form-switch mb-3 justify-content-start align-items-start"
+                >
+                  <input
+                    class="ric form-check-input p-2 border border-success"
+                    style="background-color: #1ed760"
+                    type="checkbox"
+                    role="switch"
+                    id="flexSwitchCheckChecked"
+                    checked
+                  />
+                  <label
+                    class="ric form-check-label text-white fw-bold"
+                    for="flexSwitchCheckChecked"
+                    >Ricordami</label
+                  >
+                </div>
+
+                <div
+                  class="d-flex col-md-6 col-xxl-6 col-xl-8 flex-column align-items-center justify-content-center mt-5 mb-5"
+                >
+                  <button
+                    id="accesso"
+                    type="submit"
+                    class="btn btn-primary col-lg-11 p-lg-3 mb-4 text-black fw-bold border border-0 rounded-pill col-md-7 col-9 p-3"
+                    style="background-color: #1ed760"
+                    role="button"
+                  >
+                    <a
+                      href="index.html"
+                      class="text-black fw-bold"
+                      style="text-decoration: none"
+                      >Accedi</a
+                    >
+                  </button>
+
+                  <a class="text-white fw-bold" href="#"
+                    >Hai dimenticato la password?</a
+                  >
+                </div>
+              </form>
+              <hr class="text-white mb-5" />
+
+              <div
+                class="d-flex flex-column align-items-center justify-content-center flex-lg-row mb-5"
+              >
+                <h6
+                  class="text-white fw-bold text-secondary-emphasis me-2 mt-2"
+                >
+                  Non hai un account?
+                </h6>
+                <a
+                  class="text-white fw-bold"
+                  href="https://www.spotify.com/it/signup"
+                  >Iscriviti a Spotify</a
+                >
+              </div>
+            </div>
+            <div class="col col-1"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="col col-lg-2"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="logInPage.js"></script>
+  </body>
+</html>
+
+<!-- colorare il pallino di nero di Ricordami -->

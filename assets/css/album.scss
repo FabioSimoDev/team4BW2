@@ -5,21 +5,6 @@ $mobile-background: #121212;
 @import '../bootstrap-5.3.2/scss/functions';
 @import '../bootstrap-5.3.2/scss/variables';
 
-@import 'anim';
-
-.fade-out{
-    animation: fadeOutZoomIn 1s ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-[disabled=true]{
-    display: none !important;
-}
-
-[disabled=false]{
-    display: flex !important;
-}
-
 
 
 $grey-1000: #b2b2b2;
@@ -29,15 +14,6 @@ $bg-custom-grey: $grey-1000;
 
 .bg-custom-grey{
     background-color: $bg-custom-grey !important;
-}
-
-.body-bg-desktop{
-    background: linear-gradient(to top, #0f0f0f 0%, transparent 70%), linear-gradient(to bottom, #212121 0%, rgba(33,33,33,1) 30%);
-
-}
-
-.item-gray{
-    background-color: #2b2b2b;
 }
 
 li{
@@ -76,21 +52,10 @@ $hero-texts-size-responsive: 1vw;
     .new-song-hero-title{
         font-size: 4.5rem;
     }
-    .playlist-item-p{
-        font-size: 16px;
-    }
 }
 @media (max-width:1899px){
     .new-song-hero-title{
         font-size: $hero-title-size-responsive - 0.5;
-    }
-    .playlist-item-p{
-        font-size: 1vw;
-    }
-}
-@include media-breakpoint-down(xxl){
-    .playlist-item-p{
-        font-size: 1.3vw;
     }
 }
 @include media-breakpoint-down(xl){
@@ -189,9 +154,6 @@ $grid-breakpoints: (
             border: 0px !important;
         }
     }
-    .playlist-item-p{
-        font-size: 3vw;
-    }
 }
 @media (min-width: $new-md-breakpoint){
     .d-tablet-block{
@@ -245,3 +207,6 @@ $grid-breakpoints: (
   
 
   @import '../bootstrap-5.3.2/scss/bootstrap.scss';
+
+
+
