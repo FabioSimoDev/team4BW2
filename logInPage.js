@@ -1,6 +1,5 @@
 
-
-const accessoButton= document.getElementById("accedibut")
+const accessoButton= document.getElementById("accesso")
 
 
 accessoButton.addEventListener("click", function(e){
@@ -11,19 +10,14 @@ save()
 
 })
 
+
 const save = function(){
     
-const inputEmail=document.getElementById("exampleInputEmail1")
-const inputPassword=document.getElementById("exampleInputPassword1")
-
-const accessoButton= document.getElementById("accesso")
-
 
 const formReference=document.getElementById("form")
 
-formReference.addEventListener("submit", function(e){
+formReference.addEventListener("submit", function(){
 
-e.preventDefault()
 
 const inputEmail=document.getElementById("exampleInputEmail1")
 const inputPassword=document.getElementById("exampleInputPassword1")
@@ -45,6 +39,7 @@ else {sessionStorage.setItem('account-session', JSON.stringify(newLogIn) )}
 return save
 
 })
+}
 
 save()
 
@@ -59,6 +54,7 @@ function myFunction() {
       x.type = "password";
     }
   }
+  
 
-}
+
 
