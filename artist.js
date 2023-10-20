@@ -1,20 +1,25 @@
-// const addressBarItem = new URLSearchParams(window.location.search)
-// const itemId = addressBarItem.get('itemId')
+const addressBarItem = new URLSearchParams(window.location.search);
+const itemId = addressBarItem.get("artistId");
 // console.log(itemId)
 
-const createArtist = function(artistInfo){
-    const artistHero = document.getElementById('hero')
-    artistHero.style.backgroundImage = `url("${artistInfo.picture_big}")`
-    artistHero.style.backgroundRepeat = 'no-repeat' 
-    artistHero.style.backgroundSize = 'cover'
-    const navBar = document.createElement('div')
-    navBar.classList.add('d-flex', 'flex-column', 'justify-content-between', 'h-100')
-    navBar.innerHTML = `
+const createArtist = function (artistInfo) {
+  const artistHero = document.getElementById("hero");
+  artistHero.style.backgroundImage = `url("${artistInfo.picture_big}")`;
+  artistHero.style.backgroundRepeat = "no-repeat";
+  artistHero.style.backgroundSize = "cover";
+  const navBar = document.createElement("div");
+  navBar.classList.add(
+    "d-flex",
+    "flex-column",
+    "justify-content-between",
+    "h-100"
+  );
+  navBar.innerHTML = `
     <!-- SECTION HERO MOBILE VERSION -->
     <section
       class="d-md-none d-flex flex-column h-100 justify-content-between my-3 ms-3"
     >
-      <a href="album.html"
+      <a href="#"
         ><i class="bi bi-arrow-left-circle fs-1 text-white"></i
       ></a>
       <a href="#" class="link-underline link-underline-opacity-0"
@@ -30,7 +35,7 @@ const createArtist = function(artistInfo){
         <div
           class="nav-arrow-left bg-secondary-subtle d-flex p-2 justify-content-center align-items-center"
         >
-          <a href="album.html">
+          <a href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22"
@@ -116,14 +121,14 @@ const createArtist = function(artistInfo){
         </div>
       </div>
     </section>
-    `
-    artistHero.appendChild(navBar)
-    const visual = document.getElementById('fan')
-    visual.innerHTML = `${artistInfo.nb_fan} ascolti mensili`
+    `;
+  artistHero.appendChild(navBar);
+  const visual = document.getElementById("fan");
+  visual.innerHTML = `${artistInfo.nb_fan} ascolti mensili`;
 
-    // ----------------
-    const braniCheTiPiacciono = document.getElementById('brani')
-    braniCheTiPiacciono.innerHTML = `
+  // ----------------
+  const braniCheTiPiacciono = document.getElementById("brani");
+  braniCheTiPiacciono.innerHTML = `
     <div class="col-4 position-relative">
         <img
         src="${artistInfo.picture_medium}"
@@ -138,10 +143,10 @@ const createArtist = function(artistInfo){
         <p class="m-0">Hai messo mi piace a 11 brani</p>
         <p class="text-grey">di ${artistInfo.name}</p>
     </div>
-    `
-    // ------------------ 
-    const braniCheTiPiaccionoMobile = document.getElementById('brani-mobile')
-    braniCheTiPiaccionoMobile.innerHTML = `
+    `;
+  // ------------------
+  const braniCheTiPiaccionoMobile = document.getElementById("brani-mobile");
+  braniCheTiPiaccionoMobile.innerHTML = `
     <div class="col-4 position-relative">
         <img
         src="${artistInfo.picture_medium}"
@@ -155,31 +160,31 @@ const createArtist = function(artistInfo){
         <h5 class="m-0 fs-6">Brani che ti piacciono</h5>
         <p class="text-grey">8 di ${artistInfo.name}</p>
     </div>
-    `
-}
+    `;
+};
 
-const getSongs = function(canzone){
-    let num = 0
-    for (i=0; i<canzone.data.length; i++){
-        num++
-        const durationSong = canzone.data[i].duration
-        const durationInSeconds = parseInt(durationSong)
-        const minute = Math.floor(durationInSeconds/60)
-        const seconds = durationInSeconds % 60
-        console.log(durationInSeconds)
-        // const getTime = function(){
-        //     const durationSong = canzone.data[i].duration
-        //     const durationInSeconds = parseInt(durationSong)
-        //     const minute = Math.floor(durationInSeconds/60)
-        //     const seconds = durationInSeconds % 60
-        //     if (minute < 10) { minute = "0" + minute; }
-        //     if (seconds < 10) { seconds = "0" + seconds; }
-        //     return minutes + ':' + seconds;
-        // }
-        const songList = document.getElementById('song-list')
-        const songDetails = document.createElement ('div')
-        songDetails.classList.add('d-flex', 'align-items-center', 'mt-2')
-        songDetails.innerHTML = `
+const getSongs = function (canzone) {
+  let num = 0;
+  for (i = 0; i < canzone.data.length; i++) {
+    num++;
+    const durationSong = canzone.data[i].duration;
+    const durationInSeconds = parseInt(durationSong);
+    const minute = Math.floor(durationInSeconds / 60);
+    const seconds = durationInSeconds % 60;
+    console.log(durationInSeconds);
+    // const getTime = function(){
+    //     const durationSong = canzone.data[i].duration
+    //     const durationInSeconds = parseInt(durationSong)
+    //     const minute = Math.floor(durationInSeconds/60)
+    //     const seconds = durationInSeconds % 60
+    //     if (minute < 10) { minute = "0" + minute; }
+    //     if (seconds < 10) { seconds = "0" + seconds; }
+    //     return minutes + ':' + seconds;
+    // }
+    const songList = document.getElementById("song-list");
+    const songDetails = document.createElement("div");
+    songDetails.classList.add("d-flex", "align-items-center", "mt-2");
+    songDetails.innerHTML = `
         <div
         class="col-1 pe-0 d-flex justify-content-center text-grey" 
         >
@@ -202,33 +207,33 @@ const getSongs = function(canzone){
         ${canzone.data[i].rank}
         </div>
         <div class="col-2 text-grey d-flex justify-content-end">${minute}:${seconds}</div
-        `
-        songList.appendChild(songDetails)
+        `;
+    songList.appendChild(songDetails);
 
-          songDetails.addEventListener('mouseover', hover => {
-            songDetails.classList.add('chosen')
-            const number = songDetails.querySelector('#number')
-            number.classList.add('d-none')
-            const play = songDetails.querySelector('#play')
-            play.classList.remove('d-none')
-            play.classList.add('d-block')
-            songDetails.addEventListener('mouseout', out => {
-              number.classList.remove('d-none')
-              play.classList.remove('d-block')
-              play.classList.add('d-none')
-              })
-            })
+    songDetails.addEventListener("mouseover", (hover) => {
+      songDetails.classList.add("chosen");
+      const number = songDetails.querySelector("#number");
+      number.classList.add("d-none");
+      const play = songDetails.querySelector("#play");
+      play.classList.remove("d-none");
+      play.classList.add("d-block");
+      songDetails.addEventListener("mouseout", (out) => {
+        number.classList.remove("d-none");
+        play.classList.remove("d-block");
+        play.classList.add("d-none");
+      });
+    });
 
-            const title = songDetails.querySelector('#title')
-            title.addEventListener('mouseover', underline => {
-              title.classList.add('songOver')
-            })
+    const title = songDetails.querySelector("#title");
+    title.addEventListener("mouseover", (underline) => {
+      title.classList.add("songOver");
+    });
 
-        // VERSIONE MOBILE
-        const listSongsMobile = document.getElementById('lista-mobile')
-        const songMobile = document.createElement('div')
-        songMobile.classList.add('row', 'mt-2')
-        songMobile.innerHTML = `
+    // VERSIONE MOBILE
+    const listSongsMobile = document.getElementById("lista-mobile");
+    const songMobile = document.createElement("div");
+    songMobile.classList.add("row", "mt-2");
+    songMobile.innerHTML = `
         <div class="col d-flex align-items-center mt-3">
             <div class="col-1">
             <p class="m-0 fw-bold" id="number">${num}</p>
@@ -251,62 +256,67 @@ const getSongs = function(canzone){
             ></a>
             </div>
         </div>
-        `
-        listSongsMobile.appendChild(songMobile)
+        `;
+    listSongsMobile.appendChild(songMobile);
 
-        songMobile.addEventListener('mouseover', hover => {
-          songMobile.classList.add('chosen')
-          const number = songMobile.querySelector('#number')
-          number.classList.add('d-none')
-          const play = songMobile.querySelector('#play')
-          play.classList.remove('d-none')
-          play.classList.add('d-block')
-          songMobile.addEventListener('mouseout', out => {
-            number.classList.remove('d-none')
-            play.classList.remove('d-block')
-            play.classList.add('d-none')
-            })
-          })
+    songMobile.addEventListener("mouseover", (hover) => {
+      songMobile.classList.add("chosen");
+      const number = songMobile.querySelector("#number");
+      number.classList.add("d-none");
+      const play = songMobile.querySelector("#play");
+      play.classList.remove("d-none");
+      play.classList.add("d-block");
+      songMobile.addEventListener("mouseout", (out) => {
+        number.classList.remove("d-none");
+        play.classList.remove("d-block");
+        play.classList.add("d-none");
+      });
+    });
 
-          const title2 = songMobile.querySelector('#title2')
-          title2.addEventListener('mouseover', underline => {
-            title2.classList.add('songOver')
-          })
-    }
-}
+    const title2 = songMobile.querySelector("#title2");
+    title2.addEventListener("mouseover", (underline) => {
+      title2.classList.add("songOver");
+    });
+  }
+};
 
-const getArtist = function() {
-    fetch ('https://striveschool-api.herokuapp.com/api/deezer/artist/madonna', {
-    })
+const getArtist = function () {
+  fetch(
+    `https://striveschool-api.herokuapp.com/api/deezer/artist/${itemId}`,
+    {}
+  )
     .then((res) => {
-        if(res.ok){
-            return res.json()
-        } else {
-            throw new Error ('Errore nella response')
-        }
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Errore nella response");
+      }
     })
-    .then((artist) => { 
-        createArtist(artist)
-        console.log(artist)
-        const getTrackList = function (){
-            fetch ('https://striveschool-api.herokuapp.com/api/deezer/artist/290/top?limit=50', {     
-            })
-            .then((res) => {
-                if(res.ok){
-                    return res.json()
-                } else {
-                    throw new Error ('Errore nella response della tracklist')
-                }
-            })
-            .then((song) => {
-                getSongs(song)
-                console.log(song)
-            })
-            .catch((err) => console.log(err))
-        }
-        getTrackList()
+    .then((artist) => {
+      createArtist(artist);
+      console.log(artist);
+      const getTrackList = function () {
+        fetch(
+          `https://striveschool-api.herokuapp.com/api/deezer/artist/${itemId}/top?limit=50`,
+          {}
+        )
+          .then((res) => {
+            if (res.ok) {
+              return res.json();
+            } else {
+              throw new Error("Errore nella response della tracklist");
+            }
+          })
+          .then((song) => {
+            getSongs(song);
+            console.log(song);
+          })
+          .catch((err) => console.log(err));
+      };
+      getTrackList();
     })
-    .catch((err) => {console.log(err)})
-}
-getArtist()
-
+    .catch((err) => {
+      console.log(err);
+    });
+};
+getArtist();
