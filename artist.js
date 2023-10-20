@@ -205,7 +205,6 @@ const getSongs = function(canzone){
         `
         songList.appendChild(songDetails)
 
-
           songDetails.addEventListener('mouseover', hover => {
             songDetails.classList.add('chosen')
             const number = songDetails.querySelector('#number')
@@ -224,11 +223,6 @@ const getSongs = function(canzone){
             title.addEventListener('mouseover', underline => {
               title.classList.add('songOver')
             })
-
-
-
-
-
 
         // VERSIONE MOBILE
         const listSongsMobile = document.getElementById('lista-mobile')
@@ -280,10 +274,6 @@ const getSongs = function(canzone){
           })
     }
 }
-
-
-
-
 
 const getArtist = function() {
     fetch ('https://striveschool-api.herokuapp.com/api/deezer/artist/madonna', {
