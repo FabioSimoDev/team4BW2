@@ -14,7 +14,7 @@ const createArtist = function(artistInfo){
     <section
       class="d-md-none d-flex flex-column h-100 justify-content-between my-3 ms-3"
     >
-      <a href="#"
+      <a href="album.html"
         ><i class="bi bi-arrow-left-circle fs-1 text-white"></i
       ></a>
       <a href="#" class="link-underline link-underline-opacity-0"
@@ -30,7 +30,7 @@ const createArtist = function(artistInfo){
         <div
           class="nav-arrow-left bg-secondary-subtle d-flex p-2 justify-content-center align-items-center"
         >
-          <a href="#">
+          <a href="album.html">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22"
