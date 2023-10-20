@@ -14545,7 +14545,23 @@ textarea.form-control-lg {
   }
 }
 .vh-100 {
-  height: 100vh;
+  min-height: 100vh;
+}
+
+body, html {
+  min-height: 100vh !important;
+}
+
+div.container-fluid:nth-child(2), div.container-sm:nth-child(2), div.container-md:nth-child(2), div.container-lg:nth-child(2), div.container-xl:nth-child(2), div.container-xxl:nth-child(2) {
+  height: 100%;
+}
+
+.main-row {
+  min-height: 100%;
+}
+
+#hero {
+  height: 10%;
 }
 
 .fs-35 {
@@ -14564,44 +14580,6 @@ textarea.form-control-lg {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
-}
-
-.vh-150 {
-  height: 150vh;
-}
-
-.chosen:hover {
-  background-color: rgba(81, 81, 81, 0.8);
-}
-
-.songOver:hover {
-  text-decoration: underline;
-}
-
-.vh-100 {
-  height: 100vh;
-}
-
-.fs-35 {
-  font-size: 3.5em;
-}
-
-.text-grey {
-  color: gray;
-}
-
-.mb-20 {
-  margin-bottom: 30em;
-}
-
-.heart-absolute {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-}
-
-.vh-150 {
-  height: 150vh;
 }
 
 .chosen:hover {
