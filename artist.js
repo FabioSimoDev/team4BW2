@@ -2,6 +2,20 @@ const addressBarItem = new URLSearchParams(window.location.search);
 const itemId = addressBarItem.get("artistId");
 // console.log(itemId)
 
+const overlayLoading = document.querySelector(".overlay-loading");
+
+const removeOverlay = function () {
+  setTimeout(() => {
+    overlayLoading.classList.add("fade-out");
+    overlayLoading.addEventListener("click", () => {
+      console.log("hai cliccato l'overlay");
+    });
+    setTimeout(() => {
+      overlayLoading.classList.add("d-none");
+    }, 1000);
+  }, 2000);
+};
+
 const createArtist = function (artistInfo) {
   const artistHero = document.getElementById("hero");
   console.log(artistInfo);
@@ -162,6 +176,7 @@ const createArtist = function (artistInfo) {
         <p class="text-grey">8 di ${artistInfo.name}</p>
     </div>
     `;
+  removeOverlay();
 };
 
 const getSongs = function (canzone) {
@@ -298,7 +313,7 @@ const getArtist = function () {
       console.log(artist);
       const getTrackList = function () {
         fetch(
-          `https://striveschool-api.herokuapp.com/api/deezer/artist/${itemId}/top?limit=50`,
+          `https://striveschool-api.herokuapp.com/api/deezer/artist/${itemId}/top?limit=40`,
           {}
         )
           .then((res) => {
