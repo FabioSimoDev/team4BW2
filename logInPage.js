@@ -1,15 +1,13 @@
 const accessoButton = document.getElementById("accesso");
 
-accessoButton.addEventListener("click", function (e) {
+accessoButton.addEventListener("submit", function (e) {
   e.preventDefault();
 
   save();
 });
 
 const save = function () {
-  // const formReference=document.getElementById("form")
-
-  // formReference.addEventListener("submit", function(){
+  
 
   const inputEmail = document.getElementById("exampleInputEmail1");
   const inputPassword = document.getElementById("exampleInputPassword1");
