@@ -3,6 +3,12 @@
     border-color: black !important;
     color: black !important;
 }
+
+
+.form-control{
+    color: white !important;
+}
+
  
 @media (min-width: 768px) { 
 
@@ -70,6 +76,7 @@
 font-size: 1.5vw;
 
 
+
 }
 
 
@@ -100,7 +107,7 @@ font-size: 1.5vw;
    .bi{
 
 font-size: 1.5vw;
-
+width: 1.8vw;
 
 }
 .bi-spotify{
@@ -131,7 +138,9 @@ font-size: 1.5vw;
 
 body{
 
-    background-image: linear-gradient(bottom, #000000 0%, #000000 60%) !important;
+   
+        background-image: linear-gradient(#191919, rgb(0, 0, 0));
+      
 
 }
 
