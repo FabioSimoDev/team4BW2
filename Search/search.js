@@ -274,8 +274,6 @@ const playImg = document.getElementById("playlistImg");
 const playState = document.querySelector(".publicOprivate");
 const playTitle = document.querySelector(".playlistTitle");
 
-function playlistLol() {
-  const source = document.querySelector(".image");
-  console.log(source.img.src);
-  playImg = source.img.src;
-}
+//
+//
+//
