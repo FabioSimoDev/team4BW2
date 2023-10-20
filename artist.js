@@ -181,12 +181,13 @@ const getSongs = function(canzone){
         songDetails.classList.add('d-flex', 'align-items-center', 'mt-2')
         songDetails.innerHTML = `
         <div
-        class="col-1 pe-0 d-flex justify-content-end text-grey"
+        class="col-1 pe-0 d-flex justify-content-center text-grey" 
         >
-        ${num}
+          <p class="m-0" id="number">${num}</p>
+          <i class="bi bi-play-fill d-none" id="play"></i>
         </div>
         <div
-            class="col-2 p-0 d-flex justify-content-center mx-1 chosen-song"
+            class="col-2 p-0 d-flex justify-content-center mx-1"
         >
             <img
             src="${canzone.data[i].album.cover_medium}"
@@ -194,15 +195,40 @@ const getSongs = function(canzone){
             class="w-75"
             />
         </div>
-        <div class="col-4 p-0 text-truncate">
-            ${canzone.data[i].title}
+        <div class="col-4 p-0 text-truncate" id="title">
+            <a href="#" class="text-white link-underline link-underline-opacity-0">${canzone.data[i].title}</a>
         </div>
         <div class="col-2 text-grey text-truncate d-flex justify-content-end">
         ${canzone.data[i].rank}
         </div>
         <div class="col-2 text-grey d-flex justify-content-end">${minute}:${seconds}</div
         `
-        songList.appendChild(songDetails) 
+        songList.appendChild(songDetails)
+
+
+          songDetails.addEventListener('mouseover', hover => {
+            songDetails.classList.add('chosen')
+            const number = songDetails.querySelector('#number')
+            number.classList.add('d-none')
+            const play = songDetails.querySelector('#play')
+            play.classList.remove('d-none')
+            play.classList.add('d-block')
+            songDetails.addEventListener('mouseout', out => {
+              number.classList.remove('d-none')
+              play.classList.remove('d-block')
+              play.classList.add('d-none')
+              })
+            })
+
+            const title = songDetails.querySelector('#title')
+            title.addEventListener('mouseover', underline => {
+              title.classList.add('songOver')
+            })
+
+
+
+
+
 
         // VERSIONE MOBILE
         const listSongsMobile = document.getElementById('lista-mobile')

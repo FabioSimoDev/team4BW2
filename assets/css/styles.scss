@@ -231,12 +231,14 @@ $grid-breakpoints: (
     right: 2rem;
 }
 
-.chosen-song:hover{
-    transform: scale(1.5);
-
-}
-
 .vh-150{
     height: 150vh;
 }
 
+.chosen:hover{
+    background-color: #515151cc;
+}
+
+.songOver:hover{
+    text-decoration: underline;
+}
