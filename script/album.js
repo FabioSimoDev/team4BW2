@@ -88,7 +88,7 @@ const generateHeroSection = function (albumData) {
   const heroContainer = document.getElementById("hero-details");
   const trackContainer = document.getElementById("track-container");
   heroContainer.innerHTML = `
-  <div class="d-flex hero-content" >
+  <div class="d-flex hero-content flex-column flex-md-row" >
     <div class="new-song-hero-img mx-4">
     <img
       src="${albumData.cover_big}"
@@ -99,13 +99,13 @@ const generateHeroSection = function (albumData) {
     />
   </div>
   <div class="col d-flex flex-column justify-content-between">
-    <div class="new-song-hero-header">
+    <div class="new-song-hero-header d-none d-md-block">
       <p class="fw-semibold">ALBUM</p>
     </div>
       <h2 class="new-song-hero-title fw-bold pe-2" role="button">
       ${albumData.title}
       </h2>
-    <div class="d-flex align-items-center gap-2">
+    <div class="d-flex align-items-md-center align-items-start gap-2 flex-column flex-md-row">
       <!-- classe per mini thumbnail -->
     <img
       src="${albumData.artist.picture}"
@@ -114,12 +114,14 @@ const generateHeroSection = function (albumData) {
       style="height: 30px; width: 30px" />
     <a id=artistLink class="artist text-decoration-none text-white fw-bold">${
       albumData.artist.name
-    } </a><span class="year">  · ${albumData.release_date.slice(
+    }  </a><span class="year"><span class="d-md-none">Album</span> · ${albumData.release_date.slice(
     0,
     4
-  )}  · </span>
-    <span class="ntracks">${albumData.tracks.data.length} brani,</span>
-    <span class="dtracks fw-light">${(
+  )}   </span>
+    <span class="ntracks d-none d-md-block"> · ${
+      albumData.tracks.data.length
+    } brani,</span>
+    <span class="dtracks fw-light d-none d-md-block">${(
       Math.floor((albumData.duration / 60) * 100) / 100
     )
       .toString()
