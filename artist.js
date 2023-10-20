@@ -148,7 +148,7 @@ const createArtist = function(artistInfo){
         alt=""
         class="w-100 rounded-circle"
         />
-        <i class="bi bi-heart-fill heart-absolute"></i>
+        <i class="bi bi-heart-fill heart-absolute text-success"></i>
     </div>
 
     <div class="col">
@@ -237,7 +237,8 @@ const getSongs = function(canzone){
         songMobile.innerHTML = `
         <div class="col d-flex align-items-center mt-3">
             <div class="col-1">
-            <p class="m-0 fw-bold">${num}</p>
+            <p class="m-0 fw-bold" id="number">${num}</p>
+            <i class="bi bi-play-fill d-none" id="play"></i>
             </div>
             <div class="col-3 chosen-song">
             <img
@@ -246,8 +247,8 @@ const getSongs = function(canzone){
                 class="w-100"
             />
             </div>
-            <div class="col ms-2 text-truncate">
-            <p class="text-truncate m-0 fs-6">${canzone.data[i].title}</p>
+            <div class="col ms-2 text-truncate" id="title2">
+            <p class="text-truncate m-0 fs-6"><a href="#" class="text-white link-underline link-underline-opacity-0">${canzone.data[i].title}</a></p>
             <p class="text-truncate m-0 text-grey">${canzone.data[i].rank} visualizzazioni</p>
             </div>
             <div class="col-1 d-flex justify-content-end">
@@ -258,6 +259,25 @@ const getSongs = function(canzone){
         </div>
         `
         listSongsMobile.appendChild(songMobile)
+
+        songMobile.addEventListener('mouseover', hover => {
+          songMobile.classList.add('chosen')
+          const number = songMobile.querySelector('#number')
+          number.classList.add('d-none')
+          const play = songMobile.querySelector('#play')
+          play.classList.remove('d-none')
+          play.classList.add('d-block')
+          songMobile.addEventListener('mouseout', out => {
+            number.classList.remove('d-none')
+            play.classList.remove('d-block')
+            play.classList.add('d-none')
+            })
+          })
+
+          const title2 = songMobile.querySelector('#title2')
+          title2.addEventListener('mouseover', underline => {
+            title2.classList.add('songOver')
+          })
     }
 }
 
