@@ -14,9 +14,9 @@ save()
 const save = function(){
     
 
-const formReference=document.getElementById("form")
+// const formReference=document.getElementById("form")
 
-formReference.addEventListener("submit", function(){
+// formReference.addEventListener("submit", function(){
 
 
 const inputEmail=document.getElementById("exampleInputEmail1")
@@ -38,8 +38,8 @@ else {sessionStorage.setItem('account-session', JSON.stringify(newLogIn) )}
 
 return save
 
-})
 }
+
 
 save()
 
