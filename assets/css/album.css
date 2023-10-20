@@ -1,7 +1,8 @@
 @charset "UTF-8";
-body{
+html,body{
+  min-height: 100% !important;
   background: linear-gradient(to top, #000000, #212121);
-height: 100%;
+
 }
 .bg-custom-grey {
   background-color: #b2b2b2 !important;
@@ -31,6 +32,21 @@ li.active {
 .new-song-hero-buttons button {
   flex-grow: 0.03;
   padding-block: 0.8rem !important;
+}
+.btn-container{
+  height: 100px;
+}
+.btn-container i:hover{
+  transform: scale(1.1);
+}
+.btn-container svg:hover{
+  transform: scale(1.1);
+}
+.lista:hover{
+  background-color: #80808026;
+    border: 1px solid #8080804a;
+    border-radius: 5px;
+    
 }
 
 @media (min-width: 1900px) {
