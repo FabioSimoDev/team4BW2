@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
 const accessoButton= document.getElementById("accedibut")
 
 
@@ -14,6 +15,20 @@ const save = function(){
     
 const inputEmail=document.getElementById("exampleInputEmail1")
 const inputPassword=document.getElementById("exampleInputPassword1")
+=======
+const accessoButton= document.getElementById("accesso")
+
+
+const formReference=document.getElementById("form")
+
+formReference.addEventListener("submit", function(e){
+
+e.preventDefault()
+
+const inputEmail=document.getElementById("exampleInputEmail1")
+const inputPassword=document.getElementById("exampleInputPassword1")
+
+>>>>>>> Stashed changes
 const newLogIn = {
 
 email: inputEmail.value,
@@ -21,6 +36,7 @@ password: inputPassword.value
 
 }
 
+<<<<<<< Updated upstream
 let ricordami= document.getElementById("flexSwitchCheckChecked")
 
 if( ricordami.checked){localStorage.setItem('account-memory', JSON.stringify(newLogIn) )}
@@ -43,3 +59,6 @@ function myFunction() {
       x.type = "password";
     }
   }
+=======
+})
+>>>>>>> Stashed changes
