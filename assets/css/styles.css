@@ -14543,37 +14543,4 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}
-.vh-100 {
-  height: 100vh;
-}
-
-.fs-35 {
-  font-size: 3.5em;
-}
-
-.text-grey {
-  color: gray;
-}
-
-.mb-20 {
-  margin-bottom: 30em;
-}
-
-.heart-absolute {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-}
-
-.vh-150 {
-  height: 150vh;
-}
-
-.chosen:hover {
-  background-color: rgba(81, 81, 81, 0.8);
-}
-
-.songOver:hover {
-  text-decoration: underline;
 }/*# sourceMappingURL=styles.css.map */
