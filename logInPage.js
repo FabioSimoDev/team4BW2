@@ -1,60 +1,44 @@
+const accessoButton = document.getElementById("accesso");
 
-const accessoButton= document.getElementById("accesso")
+accessoButton.addEventListener("click", function (e) {
+  e.preventDefault();
 
+  save();
+});
 
-accessoButton.addEventListener("click", function(e){
+const save = function () {
+  // const formReference=document.getElementById("form")
 
-e.preventDefault()
+  // formReference.addEventListener("submit", function(){
 
-save()
+  const inputEmail = document.getElementById("exampleInputEmail1");
+  const inputPassword = document.getElementById("exampleInputPassword1");
 
-})
+  const newLogIn = {
+    email: inputEmail.value,
+    password: inputPassword.value
+  };
 
+  let ricordami = document.getElementById("flexSwitchCheckChecked");
 
-const save = function(){
-    
+  if (ricordami.checked) {
+    localStorage.setItem("account-memory", JSON.stringify(newLogIn));
+  } else {
+    sessionStorage.setItem("account-session", JSON.stringify(newLogIn));
+  }
 
-// const formReference=document.getElementById("form")
+  return save;
+};
 
-// formReference.addEventListener("submit", function(){
-
-
-const inputEmail=document.getElementById("exampleInputEmail1")
-const inputPassword=document.getElementById("exampleInputPassword1")
-
-
-const newLogIn = {
-
-email: inputEmail.value,
-password: inputPassword.value
-
-}
-
-
-let ricordami= document.getElementById("flexSwitchCheckChecked")
-
-if( ricordami.checked){localStorage.setItem('account-memory', JSON.stringify(newLogIn) )}
-else {sessionStorage.setItem('account-session', JSON.stringify(newLogIn) )}
-
-return save
-
-}
-
-
-save()
-
+save();
 
 // mostra password
 
 function myFunction() {
-    var x = document.getElementById("exampleInputPassword1");
-    if (x.type === "password") {
-      x.type = "text";
-    } else {
-      x.type = "password";
-    }
+  var x = document.getElementById("exampleInputPassword1");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
   }
-  
-
-
-
+}
