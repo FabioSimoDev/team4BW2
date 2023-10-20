@@ -5,6 +5,11 @@ const SEARCH_QUERY = "eminem";
 let data;
 let currentlyPlaying;
 
+const playlistNamesContainer = document.getElementById(
+  "playlists-name-container"
+);
+const playlists = JSON.parse(localStorage.getItem("playlists")) || [];
+
 let likedSongs = JSON.parse(localStorage.getItem("likedSongs")) || [];
 let isCurrentlyLiked = false;
 
@@ -295,6 +300,7 @@ const fillPage = function (songsData) {
   });
 
   fillPlaylistItems();
+  loadPlaylistsNames();
   mostLikedAlgorithm();
 
   removeOverlay();
@@ -414,7 +420,21 @@ const getAverageColor = function (img) {
   };
 };
 
-const createPlayList = function () {};
+const loadPlaylistsNames = function () {
+  if (playlists.length) {
+    playlists.forEach((playlist) => {
+      playlistNamesContainer.innerHTML += `
+                                            <a href="#" class="text-decoration-none text-white"
+                                              ><small>${playlist.name}</small></a
+                                            >`;
+    });
+  } else {
+    playlistNamesContainer.innerHTML = `
+                                        <a href="#" class="text-decoration-none text-white"
+                                          ><small>nomi playlist...</small></a
+                                        >`;
+  }
+};
 
 const recommendFill = function (songs) {
   if (recommendedCards) {

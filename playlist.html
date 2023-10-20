@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="assets/css/playlist.css" />
   </head>
-  <body class="bg-mobile">
+  <body class="bg-mobile d-flex flex-column">
     <div
       class="overlay-loading vw-100 vh-100 z-3 fixed-top bg-dark top-0 d-flex justify-content-center align-items-center"
     >
@@ -23,8 +23,8 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row position-relative flex-nowrap">
+    <div class="container-fluid flex-grow-1 d-flex flex-column">
+      <div class="row position-relative flex-nowrap flex-grow-1">
         <div class="customcol-5 bg-black d-mobile-none">
           <aside class="p-2">
             <header>
@@ -321,7 +321,41 @@
           </section>
           <!-- MAIN -->
           <main>
-            <ul id="ul-playlist-container"></ul>
+            <ul id="playlist-songs" class="list-unstyled"></ul>
+            <div class="search-songs mb-3">
+              <div class="container d-flex justify-content-between">
+                <div class="search-songs d-flex flex-column gap-2">
+                  <label for="search-songs-input"
+                    >Cerchiamo qualcosa per la tua playlist</label
+                  >
+                  <span class="input-container position-relative">
+                    <svg
+                      data-name="Layer 1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      width="22"
+                      fill="currentColor"
+                      class="search-inside-input-icon translate-middle-y"
+                    >
+                      <path
+                        d="M6.57 1A5.57 5.57 0 1 1 1 6.57 5.57 5.57 0 0 1 6.57 1m0-1a6.57 6.57 0 1 0 6.57 6.57A6.57 6.57 0 0 0 6.57 0z"
+                      />
+                      <path
+                        d="m10.031 11.447 1.415-1.414 4.193 4.193-1.415 1.414z"
+                      />
+                    </svg>
+                    <input
+                      id="search-songs-input"
+                      type="text"
+                      placeholder="Cerca brani o episodi"
+                    />
+                  </span>
+                </div>
+                <span class="font-monospace" role="button">X</span>
+              </div>
+            </div>
+            <!-- RISULTATI RICERCA -->
+            <ul id="ul-playlist-container" class="list-unstyled"></ul>
           </main>
         </div>
         <div

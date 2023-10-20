@@ -14568,17 +14568,14 @@ textarea.form-control-lg {
   }
 }
 body, html {
-  height: 100% !important;
-  min-height: 100% !important;
+  min-height: 100vh !important;
 }
 
 div.container-fluid:nth-child(2), div.container-sm:nth-child(2), div.container-md:nth-child(2), div.container-lg:nth-child(2), div.container-xl:nth-child(2), div.container-xxl:nth-child(2) {
   height: 100%;
-  min-height: 100%;
 }
 
-.position-relative {
-  height: 100%;
+.row:first-of-type {
   min-height: 100%;
 }
 
@@ -14590,4 +14587,26 @@ div.container-fluid:nth-child(2), div.container-sm:nth-child(2), div.container-m
 
 .new-song-hero-title {
   outline: none;
+}
+
+.search-inside-input-icon {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+  top: 25%;
+  left: 2%;
+}
+
+#search-songs-input {
+  padding-left: 2.5rem;
+  padding-block: 0.4rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
 }/*# sourceMappingURL=playlist.css.map */
