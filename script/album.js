@@ -1,3 +1,5 @@
+const heroContainer = document.getElementById("hero-details");
+
 // Dichiarazione di una variabile per tenere traccia dello stato del cuore e colorarlo di verde
 let isFavorite = false;
 
@@ -19,62 +21,40 @@ if (heartIcon) {
   heartIcon.addEventListener("click", handleFavoriteClick);
 }
 
-// Funzione per convertire un valore RGB in un valore esadecimale
-const rgbToHex = function (r, g, b) {
-  if (r > 255 || g > 255 || b > 255) {
-    throw "Componente colore non valido";
-  } else {
-    return ((r << 16) | (g << 8) | b).toString(16);
-  }
-};
+const getAverageColor = function (img) {
+  // img.src = img;
 
-// Funzione per aggiungere zeri davanti a un colore esadecimale se necessario
-const pad = function (hex) {
-  return ("000000" + hex).slice(-6);
-};
+  img.onload = function () {
+    let canvas = document.createElement("canvas");
+    let ctx = canvas.getContext("2d");
 
-// Funzione per creare un canvas da un'immagine e restituire il contesto 2D
-const draw = function (img) {
-  let canvas = document.createElement("canvas");
-  let c = canvas.getContext("2d");
-  c.width = canvas.width = img.clientWidth;
-  c.height = canvas.height = img.clientHeight;
-  c.clearRect(0, 0, c.width, c.height);
-  c.drawImage(img, 0, 0, img.clientWidth, img.clientHeight);
-  return c;
-};
+    canvas.width = img.width;
+    canvas.height = img.height;
 
-// Funzione per ottenere una mappa dei colori più ricorrenti nell'immagine
-const getColors = function (c) {
-  let col,
-    colors = {};
-  let pixels, r, g, b, a;
-  r = g = b = a = 0;
-  pixels = c.getImageData(0, 0, c.width, c.height);
-  for (let i = 0, data = pixels.data; i < data.length; i += 4) {
-    r = data[i];
-    g = data[i + 1];
-    b = data[i + 2];
-    a = data[i + 3];
-    if (a < 255 / 2) continue;
-    col = rgbToHex(r, g, b);
-    if (!colors[col]) colors[col] = 0;
-    colors[col]++;
-  }
-  return colors;
-};
+    ctx.drawImage(img, 0, 0, img.width, img.height);
 
-// Funzione per trovare il colore più ricorrente dato un oggetto di frequenza dei colori
-const findMostRecurrentColor = function (colorMap) {
-  let highestValue = 0;
-  let mostRecurrent = null;
-  for (const hexColor in colorMap) {
-    if (colorMap[hexColor] > highestValue) {
-      mostRecurrent = hexColor;
-      highestValue = colorMap[hexColor];
+    let imageData = ctx.getImageData(0, 0, img.width, img.height).data;
+
+    let totalR = 0,
+      totalG = 0,
+      totalB = 0;
+
+    for (let i = 0; i < imageData.length; i += 4) {
+      totalR += imageData[i];
+      totalG += imageData[i + 1];
+      totalB += imageData[i + 2];
     }
-  }
-  return mostRecurrent;
+
+    let averageR = Math.round(totalR / (imageData.length / 4));
+    let averageG = Math.round(totalG / (imageData.length / 4));
+    let averageB = Math.round(totalB / (imageData.length / 4));
+
+    let average = "rgb(" + averageR + "," + averageG + "," + averageB + ")";
+    console.log(average);
+    document.body.style.background = `linear-gradient(to bottom, ${average} 0%, transparent 45%), linear-gradient(to top, black 0%, rgba(33,33,33,1) 65%)`;
+    heroContainer.style.background = "transparent";
+    return average;
+  };
 };
 
 // fetch per trasportare l'id dell'album
@@ -85,24 +65,25 @@ console.log(albumId);
 
 // funzione per ricreare la sezione Hero dell'album
 const generateHeroSection = function (albumData) {
-  const heroContainer = document.getElementById("hero-details");
   const trackContainer = document.getElementById("track-container");
+  console.log(albumData.cover_big);
   heroContainer.innerHTML = `
   <div class="d-flex hero-content flex-column flex-md-row" >
-    <div class="new-song-hero-img mx-4">
+    <div class="new-song-hero-img mx-4 d-flex align-self-center">
     <img
       src="${albumData.cover_big}"
       alt="album image"
       class="img-fluid"
       id="hero-img"
       width="300px"
+      crossorigin= "anonymous"
     />
   </div>
-  <div class="col d-flex flex-column justify-content-between">
+  <div class="col d-flex flex-column justify-content-between" style="width: 350px">
     <div class="new-song-hero-header d-none d-md-block">
       <p class="fw-semibold">ALBUM</p>
     </div>
-      <h2 class="new-song-hero-title fw-bold pe-2 mt-2" role="button">
+      <h2 class="new-song-hero-title fw-bold pe-2 mt-2" id="title-h2" role="button">
       ${albumData.title}
       </h2>
     <div class="d-flex align-items-md-center align-items-start gap-2 flex-column flex-md-row">
@@ -132,6 +113,11 @@ const generateHeroSection = function (albumData) {
   </div>
 
   `;
+
+  const heroImg = document.getElementById("hero-img");
+  console.log(heroImg);
+  getAverageColor(heroImg);
+
   // Imposta l'attributo href con l'URL dinamico
   const artistLink = document.getElementById("artistLink");
   const artistId = albumData.artist.id;
@@ -179,7 +165,12 @@ const generateHeroSection = function (albumData) {
       Math.floor(Math.random() * (30000 - 100 + 1)) + 100;
     const reproductionsParagraph = document.createElement("p");
     reproductionsParagraph.textContent = `${randomReproductions}`;
-    reproductionsParagraph.classList.add("col", "text-center");
+    reproductionsParagraph.classList.add(
+      "col",
+      "text-center",
+      "d-none",
+      "d-md-block"
+    );
     trackInfo.appendChild(reproductionsParagraph);
 
     // Aggiunta della durata della canzone (sostituisci con la durata effettiva)
@@ -190,7 +181,7 @@ const generateHeroSection = function (albumData) {
     durationParagraph.textContent = `${minutes}:${
       seconds < 10 ? "0" : ""
     }${seconds}`;
-    durationParagraph.classList.add("col", "text-end"); // Sostituisci con la durata reale
+    durationParagraph.classList.add("col", "text-end", "d-none", "d-md-block"); // Sostituisci con la durata reale
     trackInfo.appendChild(durationParagraph);
 
     // Aggiungi il div "prova d-flex justify-content-around" come figlio dell'elemento lista
