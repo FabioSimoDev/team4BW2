@@ -12,9 +12,20 @@
     <link rel="stylesheet" href="assets/css/artist.css" />
   </head>
   <body class="bg-mobile">
-    <div class="container-fluid vh-100">
-      <div class="row position-relative flex-nowrap h-100">
-        <div class="customcol-5 bg-black d-mobile-none">
+    <div
+      class="overlay-loading vw-100 vh-100 z-3 fixed-top bg-dark top-0 d-flex justify-content-center align-items-center"
+    >
+      <div
+        class="spinner-border text-success"
+        role="status"
+        style="width: 3rem; height: 3rem"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row position-relative flex-nowrap h-100 main-row">
+        <div class="customcol-5 bg-black d-mobile-none vh-150">
           <aside class="p-2">
             <header>
               <nav class="d-flex align-items-center pb-3 text-truncate">
@@ -210,10 +221,7 @@
         </div>
         <div class="customcol-md-15 customcol-24 p-0">
           <!-- NAV BAR -->
-          <section
-            class="h-50 d-flex flex-column justify-content-between"
-            id="hero"
-          >
+          <section class="d-flex flex-column justify-content-between" id="hero">
             <!-- <div class="d-flex flex-column justify-content-between h-100"> -->
             <!-- SECTION HERO MOBILE VERSION -->
             <!-- <section
@@ -641,7 +649,7 @@
           </main>
         </div>
         <div
-          class="customcol-4 right-column-header fixed-right bg-black py-2 px-0 d-mobile-none flex-grow-1"
+          class="customcol-4 vh-150 right-column-header fixed-right bg-black py-2 px-0 d-mobile-none flex-grow-1"
         >
           <div
             class="d-flex justify-content-between flex-column right-column-container"

@@ -1,8 +1,26 @@
+@import 'anim';
 @import 'styles.scss';
 
 .vh-100{
-    height: 100vh;
+    min-height: 100vh;
 }
+
+body, html{
+    min-height: 100vh !important;
+}
+
+div.container-fluid:nth-child(2) {
+    height: 100%;
+  }
+  
+  
+  .main-row {
+    min-height: 100%;
+  }
+
+  #hero{
+    height: 10%;
+  }
 
 
 .fs-35 {
@@ -21,10 +39,6 @@
     position: absolute;
     bottom: 2rem;
     right: 2rem;
-}
-
-.vh-150{
-    height: 150vh;
 }
 
 .chosen:hover{
