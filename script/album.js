@@ -273,7 +273,7 @@ const generateHeroSection = function (albumData) {
   const trackContainer = document.getElementById("track-container");
   console.log(albumData.cover_big);
   heroContainer.innerHTML = `
-  <div class="d-flex hero-content flex-column flex-md-row" >
+  <div class="d-flex w-100 hero-content flex-column flex-md-row" >
     <div class="new-song-hero-img mx-4 d-flex align-self-center">
     <img
       src="${albumData.cover_big}"
