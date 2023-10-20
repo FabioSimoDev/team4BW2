@@ -22,8 +22,8 @@
     cz-shortcut-listen="true"
     class="d-flex flex-column"
   >
-    <div class="container-fluid">
-      <div class="row flex-nowrap">
+    <div class="container-fluid flex-grow-1 d-flex flex-column">
+      <div class="row flex-nowrap flex-grow-1">
         <!-- sidebar sx -->
         <div class="customcol-5 bg-black d-mobile-none">
           <aside class="p-2">
@@ -70,7 +70,7 @@
                   </li>
                   <li class="nav-item">
                     <a
-                      href="#"
+                      href="Search/search.html"
                       class="text-decoration-none text-white d-flex align-items-center gap-3"
                     >
                       <svg
@@ -296,7 +296,7 @@
 
           <div id="track-container">
             <div class="btn-container d-flex align-items-center">
-              <i class="bi bi-play-circle-fill fs-1 text-success me-3"></i>
+              <i class="bi bi-play-circle-fill text-success me-3"></i>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -318,7 +318,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <i class="bi bi-three-dots"></i>
+                  <i class="bi bi-three-dots fs-4"></i>
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Segui</a></li>
@@ -335,7 +335,9 @@
                 </ul>
               </div>
             </div>
-            <div class="d-flex justify-content-between mx-4 mt-2 border-bottom">
+            <div
+              class="d-none d-md-block d-md-flex justify-content-md-between mx-4 mt-2 border-bottom"
+            >
               <p class="fw-bold"># TITOLO</p>
               <p class="fw-bold">RIPRODUZIONI</p>
               <p><i class="bi bi-clock fw-bold"></i></p>
@@ -562,9 +564,13 @@
     </div>
     <!-- footer player -->
     <footer
-      class="z-5 fixed-bottom w-100 bottom-0 px-md-3 py-3 bg-dark border-top footer"
+      class="z-2 fixed-bottom w-100 bottom-0 px-md-3 py-3 bg-dark border-top footer"
     >
-      <div class="row flex-nowrap d-mobile-none align-items-center">
+      <div
+        class="row flex-nowrap d-mobile-none align-items-center"
+        disabled="true"
+        id="desktop-playBar"
+      >
         <div class="customcol-7">
           <div class="d-flex align-items-center gap-3">
             <div class="footer-left-img">
@@ -573,13 +579,19 @@
                 alt="song-image"
                 class="img-fluid rounded"
                 width="60px"
+                id="player-img"
               />
             </div>
             <div class="footer-left-text d-flex flex-column text-truncate">
-              <p class="m-0">Fat Funny Friend</p>
-              <small class="opacity-75">Maddie Zahm</small>
+              <p class="m-0" id="current-track-title">Fat Funny Friend</p>
+              <small class="opacity-75" id="current-track-author"
+                >Maddie Zahm</small
+              >
             </div>
-            <div class="footer-left-like-icon d-flex flex-column ps-2">
+            <div
+              class="footer-left-like-icon d-flex flex-column ps-2"
+              onclick="likeClick()"
+            >
               <img
                 src="assets/imgs/Heart Icon.svg"
                 alt="heart icon"
@@ -597,25 +609,32 @@
               <i class="bi bi-shuffle"></i>
               <i class="bi bi-skip-backward-fill"></i>
               <i
+                id="player-play-pause-btn"
+                role="button"
+                onclick="playOrStopHandler()"
                 class="p-2 d-flex rounded-circle bg-light bi bi-play-fill text-black"
               ></i>
               <i class="bi bi-skip-forward-fill"></i>
               <i class="bi bi-repeat"></i>
             </div>
             <div class="footer-play-bar d-flex align-items-center gap-2">
-              <span>0:58</span>
+              <span id="track-current-second">0:58</span>
               <div
                 class="progress"
                 role="progressbar"
                 aria-label="Basic example"
-                aria-valuenow="30"
+                aria-valuenow="0"
                 aria-valuemin="0"
                 aria-valuemax="100"
                 style="height: 5px; width: 100%"
               >
-                <div class="progress-bar bg-white" style="width: 30%"></div>
+                <div
+                  id="current-track-progress-bar"
+                  class="progress-bar bg-white"
+                  style="width: 0%; transition: width 0.1s linear"
+                ></div>
               </div>
-              <span>3:20</span>
+              <span id="current-track-duration">3:20</span>
             </div>
           </div>
         </div>
