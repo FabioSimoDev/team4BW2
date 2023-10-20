@@ -21,7 +21,11 @@ password: inputPassword.value
 
 }
 
-localStorage.setItem('account-memory', JSON.stringify(newLogIn) )
+let ricordami= document.getElementById("flexSwitchCheckChecked")
+
+if( ricordami.checked){localStorage.setItem('account-memory', JSON.stringify(newLogIn) )}
+else {sessionStorage.setItem('account-session', JSON.stringify(newLogIn) )}
+
 return save
 
 }
