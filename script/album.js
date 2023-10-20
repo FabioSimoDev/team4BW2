@@ -102,17 +102,17 @@ const generateHeroSection = function (albumData) {
     <div class="new-song-hero-header d-none d-md-block">
       <p class="fw-semibold">ALBUM</p>
     </div>
-      <h2 class="new-song-hero-title fw-bold pe-2" role="button">
+      <h2 class="new-song-hero-title fw-bold pe-2 mt-2" role="button">
       ${albumData.title}
       </h2>
     <div class="d-flex align-items-md-center align-items-start gap-2 flex-column flex-md-row">
       <!-- classe per mini thumbnail -->
-    <img
-      src="${albumData.artist.picture}"
-      alt="artist image"
-      class="rounded-circle img-album"
-      style="height: 30px; width: 30px" />
-    <a id=artistLink class="artist text-decoration-none text-white fw-bold">${
+    
+    <a id=artistLink class="artist text-decoration-none text-white fw-bold"><img
+    src="${albumData.artist.picture}"
+    alt="artist image"
+    class="rounded-circle img-album"
+    style="height: 30px; width: 30px" /> ${
       albumData.artist.name
     }  </a><span class="year"><span class="d-md-none">Album</span> · ${albumData.release_date.slice(
     0,
