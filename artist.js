@@ -4,7 +4,8 @@ const itemId = addressBarItem.get("artistId");
 
 const createArtist = function (artistInfo) {
   const artistHero = document.getElementById("hero");
-  artistHero.style.backgroundImage = `url("${artistInfo.picture_big}")`;
+  console.log(artistInfo);
+  artistHero.style.backgroundImage = `url("${artistInfo.picture_xl}")`;
   artistHero.style.backgroundRepeat = "no-repeat";
   artistHero.style.backgroundSize = "cover";
   const navBar = document.createElement("div");
