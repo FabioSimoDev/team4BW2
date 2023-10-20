@@ -1,3 +1,24 @@
+// Dichiarazione di una variabile per tenere traccia dello stato del cuore e colorarlo di verde
+let isFavorite = false;
+
+function handleFavoriteClick() {
+  const heartIcon = document.getElementById("heart-icon");
+  if (isFavorite) {
+    heartIcon.style.fill = "white";
+    isFavorite = false;
+  } else {
+    heartIcon.style.fill = "green";
+    isFavorite = true;
+    alert("Album aggiunto ai preferiti");
+  }
+}
+
+// Gestore di eventi al clic dell'icona a forma di cuore
+const heartIcon = document.getElementById("heart-icon");
+if (heartIcon) {
+  heartIcon.addEventListener("click", handleFavoriteClick);
+}
+
 // Funzione per convertire un valore RGB in un valore esadecimale
 const rgbToHex = function (r, g, b) {
   if (r > 255 || g > 255 || b > 255) {
@@ -65,7 +86,6 @@ console.log(albumId);
 // funzione per ricreare la sezione Hero dell'album
 const generateHeroSection = function (albumData) {
   const heroContainer = document.getElementById("hero-details");
-
   const trackContainer = document.getElementById("track-container");
   heroContainer.innerHTML = `
   <div class="d-flex hero-content" >
@@ -92,7 +112,7 @@ const generateHeroSection = function (albumData) {
       alt="artist image"
       class="rounded-circle img-album"
       style="height: 30px; width: 30px" />
-    <a class="artist text-decoration-none fw-bold">${
+    <a id=artistLink class="artist text-decoration-none text-white fw-bold">${
       albumData.artist.name
     } </a><span class="year">  · ${albumData.release_date.slice(
     0,
@@ -110,6 +130,19 @@ const generateHeroSection = function (albumData) {
   </div>
 
   `;
+  // Imposta l'attributo href con l'URL dinamico
+  const artistLink = document.getElementById("artistLink");
+  const artistId = albumData.artist.id;
+  const dynamicURL = `artist.html?artistId=${artistId}`;
+  artistLink.setAttribute("href", dynamicURL);
+
+  // setTimeout(function () {
+  //   const heroImage = document.getElementById("hero-img");
+  //   console.log(heroImage);
+  //   const mostRecurrentColor = pad(
+  //     findMostRecurrentColor(getColors(draw(heroImage)))
+  //   );
+  // }, 2000);
 
   // Creazione della lista ordinata con classi
   const tracklistContainer = document.createElement("ol");
@@ -134,8 +167,8 @@ const generateHeroSection = function (albumData) {
     // Creazione dell'elemento <a> per il nome dell'artista
     const artistLink = document.createElement("a");
     artistLink.textContent = albumData.artist.name;
-    artistLink.href = "artist.html";
-    artistLink.classList.add("text-decoration-none");
+    artistLink.href = `artist.html?artistId=${track.artist.id} `;
+    artistLink.classList.add("text-decoration-none", "text-white", "fs-ligth");
     completeTitle.appendChild(artistLink);
     trackInfo.appendChild(completeTitle);
 

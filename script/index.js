@@ -271,7 +271,7 @@ const mostLikedAlgorithm = function () {
   return mostLikedArtist;
 };
 
-const fillPage = async function (songsData) {
+const fillPage = function (songsData) {
   const randomTrack = Math.floor(Math.random() * songsData.data.length);
   const track = songsData.data[randomTrack];
   currentlyPlaying = track;
@@ -280,7 +280,7 @@ const fillPage = async function (songsData) {
   console.log(track.album.cover_big);
   heroSongTitle.textContent = track.title_short;
   heroSongTitle.addEventListener("click", () => {
-    redirectAlbum(track);
+    redirectAlbum(track.album.id);
   });
   songHeroArtists.textContent = track.artist.name;
   songHeroDescription.textContent =
@@ -423,19 +423,27 @@ const recommendFill = function (songs) {
         return song.artist.name === artist;
       });
     }
-    const selectedAlbumIds = new Set();
+    const selectedIndices = new Set();
     Array.from(recommendedCards).forEach((card) => {
       card.setAttribute("role", "button"); //cursor pointer
-      do {
-        //per evitare che esca due volte una traccia dello stesso album
-        randomTrack = Math.floor(
-          Math.random() *
-            (artist ? mostLikedArtistSongs.length : songs.data.length)
+      let randomTrack;
+      if (artist) {
+        do {
+          //per evitare che esca due volte una traccia dello stesso album
+          randomTrack = Math.floor(
+            Math.random() *
+              (artist ? mostLikedArtistSongs.length : songs.data.length)
+          );
+        } while (
+          selectedIndices.has(mostLikedArtistSongs[randomTrack].album.id)
         );
-      } while (
-        selectedAlbumIds.has(mostLikedArtistSongs[randomTrack].album.id)
-      );
-      selectedAlbumIds.add(mostLikedArtistSongs[randomTrack].album.id);
+        selectedIndices.add(mostLikedArtistSongs[randomTrack].album.id);
+      } else {
+        do {
+          randomTrack = Math.floor(Math.random() * songs.data.length);
+        } while (selectedIndices.has(randomTrack));
+        selectedIndices.add(randomTrack);
+      }
       const track = artist
         ? mostLikedArtistSongs[randomTrack]
         : songs.data[randomTrack];
