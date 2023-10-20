@@ -1,4 +1,199 @@
+let currentlyPlaying;
+const playerImage = document.getElementById("player-img");
+
+const desktopPlayBar = document.getElementById("desktop-playBar");
+
+const currentTrackTitle = document.getElementById("current-track-title");
+const currentTrackAuthor = document.getElementById("current-track-author");
+
+const playBarHeartIcon = document.querySelector(".footer-left-like-icon");
+
+const currentTrackDuration = document.getElementById("current-track-duration");
+const currentTrackSecond = document.getElementById("track-current-second");
+const progressBar = document.getElementById("current-track-progress-bar");
+const playPauseBtn = document.getElementById("player-play-pause-btn");
+let preview = new Audio();
+let isPlaying = false;
+let isPaused = false;
+
+let timeTextInterval;
+let animInterval;
+let pauseStartTime = 0;
+let start = 0;
+
+const updateTrackBar = function (audioElement, startTime) {
+  const duration = audioElement.duration;
+
+  let progressBarCurrentValue = 0;
+  let currentTime = 0;
+  let minutes = 0;
+  let seconds = 0;
+  let fullSeconds = 0;
+  let milliSeconds = 0;
+  //   if (pauseStartTime === 0) {
+  //     start = new Date(); //momento preciso in cui la canzone è iniziata
+  //   }
+
+  let width = 0; //larghezza di partenza
+  const increasePerIteration = 10 / duration; // calcolo incremento (iterazioni al secondo / durata totale)
+
+  const updateBar = function () {
+    if (!isPaused) {
+      //   let current = new Date();
+      //   let timePassed = (current - start) / 1000; //
+      let timePassed = audioElement.currentTime;
+      // Date() ci fornisce la data precisa, includendo secondi e millisecondi attuali.
+      // quindi, ad ogni ciclo dell'intervallo ottengo la differenza tra le due date,
+      // che è il valore in millisecondi del tempo trascorso. lo divido per 1000 in modo
+      // da avere il valore in secondi (ad esempio, dopo 100 millisecondi sarà: 0.1)
+      // e grazie a questo calcolo la percentuale di incremento della barra.
+      // tutto questo va fatto perchè setInterval non è preciso al 100%.
+
+      const percent = Math.min(increasePerIteration * timePassed * 10, 100);
+      console.log("percent:", percent);
+      width = percent;
+      progressBar.style.width = width + "%";
+
+      if (width >= 100) {
+        isPlaying = false;
+        clearInterval(animInterval);
+        return;
+      }
+      console.log("ANIMINTERVAL: ", animInterval);
+    }
+  };
+
+  animInterval = setInterval(() => {
+    updateBar();
+  }, 50);
+  updateBar();
+
+  //funzione per aggiornare il testo che tiene traccia dell'andamento della canzone
+  const updateText = function () {
+    const currentTrackTime = Math.round(audioElement.currentTime);
+    console.log("currentTime: ", audioElement.currentTime);
+    let current = new Date();
+    let timePassed = ((current - start) / 1000) % 60;
+    progressBarCurrentValue = progressBar.getAttribute("aria-valuenow");
+    currentTime = currentTrackSecond.innerHTML.split(":");
+    minutes = parseInt(currentTime[0]);
+    seconds = currentTrackTime;
+    fullSeconds = seconds + minutes * 60;
+
+    // console.log("fullseconds fuori intervallo: ", fullSeconds);
+
+    seconds++;
+    fullSeconds++;
+
+    if (seconds === 60) {
+      minutes++;
+      seconds = 0;
+    }
+
+    let formattedTime = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    currentTrackSecond.textContent = formattedTime;
+    //   console.log("currentTime: ", audio.currentTime);
+  };
+
+  //dichiaro un setInterval() dentro al quale richiamo la funzione updatetText()
+  //ogni secondo. ho dovuto creare una funzione a parte anzichè metterla dentro
+  //per evitare che aspettasse un secondo prima della prima esecuzione
+  //(altrimenti, il testo avrebbe iniziato a cambiare da due secondi in poi.)
+  timeTextInterval = setInterval(() => {
+    if (fullSeconds < duration) {
+      updateText();
+    } else {
+      //se siamo alla fine della canzone, rimuovi l'intervallo.
+      clearInterval(timeTextInterval);
+      return;
+    }
+  }, 1000);
+  updateText(); //richiama la funzione per la prima volta senza aspettare un secondo
+  return;
+};
+
+const playOrStopHandler = function () {
+  if (preview.paused) {
+    play();
+  } else {
+    pause();
+  }
+};
+
+const pause = function () {
+  isPaused = true;
+  preview.pause();
+  playPauseBtn.classList.add("bi-play-fill");
+  playPauseBtn.classList.remove("bi-pause-fill");
+  isPlaying = false;
+  clearInterval(timeTextInterval);
+  clearInterval(animInterval);
+  pauseStartTime = new Date();
+};
+
+const play = function (song = undefined) {
+  if (!song) {
+    if (isPaused) {
+      if (preview.src) {
+        isPaused = false;
+        start = new Date() - (pauseStartTime - start);
+        console.log(preview.src);
+        preview.play();
+        playPauseBtn.classList.remove("bi-play-fill");
+        playPauseBtn.classList.add("bi-pause-fill");
+      }
+    }
+  } else if (!isPlaying && !preview.ended) {
+    playPauseBtn.classList.remove("bi-play-fill");
+    playPauseBtn.classList.add("bi-pause-fill");
+    console.log("isPlaying falso");
+    preview.src = song.preview;
+    preview.play();
+    console.log(preview.currentTime);
+    playerImage.src = song.album.cover_medium;
+    currentTrackTitle.textContent = song.title;
+    currentTrackAuthor.textContent = song.artist.name;
+    currentTrackSecond.textContent = "0:00";
+    progressBar.setAttribute("aria-valuemax", song.duration);
+  } else if (isPlaying && preview.src === song.preview) {
+    clearInterval(timeTextInterval);
+    clearInterval(animInterval);
+    pauseStartTime = 0;
+    preview.currentTime = 0;
+    preview.play();
+    console.log("STAI RIPRODUCENDO LA STESSA TRACCIA DI PRIMA");
+  }
+};
+const showPlayBar = function (playBar) {
+  if (!playBar) {
+    if (desktopPlayBar) {
+      playBar = desktopPlayBar;
+    }
+  }
+  if (playBar.getAttribute("disabled") === "true") {
+    playBar.setAttribute("disabled", "false");
+    console.error("playbar attiva");
+  } else {
+    return;
+  }
+};
+
+preview.addEventListener("playing", function playing(event) {
+  clearInterval(timeTextInterval);
+  clearInterval(animInterval);
+  updateTrackBar(event.target, preview);
+  isPlaying = true;
+  const minutes = (event.target.duration / 60).toString().split(".")[0];
+  console.log(minutes);
+  const seconds = event.target.duration.toFixed();
+  const totalDuration = `${minutes}:${seconds}`;
+  currentTrackDuration.textContent = totalDuration;
+  console.log(event.target);
+  console.warn("AUDIO IN RIPRODUZIONE", this);
+});
+
 const heroContainer = document.getElementById("hero-details");
+const overlayLoading = document.querySelector(".overlay-loading");
 
 // Dichiarazione di una variabile per tenere traccia dello stato del cuore e colorarlo di verde
 let isFavorite = false;
@@ -20,6 +215,16 @@ const heartIcon = document.getElementById("heart-icon");
 if (heartIcon) {
   heartIcon.addEventListener("click", handleFavoriteClick);
 }
+
+const removeOverlay = function () {
+  overlayLoading.classList.add("fade-out");
+  overlayLoading.addEventListener("click", () => {
+    console.log("hai cliccato l'overlay");
+  });
+  setTimeout(() => {
+    overlayLoading.classList.add("d-none");
+  }, 1000);
+};
 
 const getAverageColor = function (img) {
   // img.src = img;
@@ -189,10 +394,15 @@ const generateHeroSection = function (albumData) {
 
     // Aggiungi l'elemento lista al contenitore della tracklist
     tracklistContainer.appendChild(listItem);
+    listItem.addEventListener("click", () => {
+      play(track);
+      showPlayBar();
+    });
   });
 
   // Aggiungi la lista al div "track-container"
   trackContainer.appendChild(tracklistContainer);
+  removeOverlay();
 };
 
 const getSingleAlbum = function () {

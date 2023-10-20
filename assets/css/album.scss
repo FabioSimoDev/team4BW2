@@ -5,6 +5,8 @@ $mobile-background: #121212;
 @import '../bootstrap-5.3.2/scss/functions';
 @import '../bootstrap-5.3.2/scss/variables';
 
+@import 'anim';
+
 
 
 $grey-1000: #b2b2b2;
@@ -14,6 +16,19 @@ $bg-custom-grey: $grey-1000;
 
 .bg-custom-grey{
     background-color: $bg-custom-grey !important;
+}
+
+.fade-out{
+    animation: fadeOutZoomIn 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+[disabled=true]{
+    display: none !important;
+}
+
+[disabled=false]{
+    display: flex !important;
 }
 
 li{
