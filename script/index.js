@@ -189,6 +189,12 @@ preview.addEventListener("playing", function playing(event) {
   console.warn("AUDIO IN RIPRODUZIONE", this);
 });
 
+const closerightbar = function (element) {
+  element.parentElement.parentElement.parentElement.classList.add("d-lg-none");
+  document.getElementById("central-column").classList.remove("customcol-md-15");
+  document.getElementById("central-column").classList.add("customcol-md-19");
+};
+
 // preview.addEventListener("ended", (event) => {
 // //   clearInterval(timeTextInterval);
 //   //   clearInterval(animInterval);

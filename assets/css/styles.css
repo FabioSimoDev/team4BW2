@@ -160,9 +160,6 @@ li.active {
   .d-tablet-flex {
     display: flex !important;
   }
-  .card.border-0 {
-    border: 1px solid black !important;
-  }
 }
 .customcol-1 {
   flex: 0 0 4.1666666667% !important;
